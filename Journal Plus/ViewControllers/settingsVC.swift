@@ -119,6 +119,7 @@ class SettingsVC: UITableViewController{
                 
                 WidgetBackgroundColor.value = Icon.Dark.value ? UIColor.black : UIColor.white
                 WidgetTextColor.value = UIColor(named: Icon.names[Icon.Index.value]) ?? UIColor.white
+                WidgetCenter.shared.reloadAllTimelines()
                 
                 return true
             })]

@@ -93,6 +93,7 @@
 		7DA9081424BB7B5600FA5F72 /* Purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E824BB7B5600FA5F72 /* Purple@2x.png */; };
 		7DE204A724BE23F800E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
 		7DE204AB24BE27DC00E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
+		7DE204AD24BE287000E18E4C /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204AC24BE287000E18E4C /* CalenderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7DA9082A24BB8F2200FA5F72 /* JournalWExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JournalWExtension.entitlements; sourceTree = "<group>"; };
 		7DE204A624BE23F800E18E4C /* Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calender.swift; sourceTree = "<group>"; };
+		7DE204AC24BE287000E18E4C /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +442,7 @@
 				7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */,
 				7D1A905324BC7F76002C6AD7 /* Assets.xcassets */,
 				7D1A905524BC7F76002C6AD7 /* Info.plist */,
+				7DE204AC24BE287000E18E4C /* CalenderView.swift */,
 			);
 			path = DayWidget;
 			sourceTree = "<group>";
@@ -759,6 +762,7 @@
 				7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */,
 				16B8A58920EE7BB900AFE7D1 /* CalenderVC.swift in Sources */,
 				16CA266C20F88194005CF903 /* ListTableView.swift in Sources */,
+				7DE204AD24BE287000E18E4C /* CalenderView.swift in Sources */,
 				16A3DAA220F88C5100EE72E2 /* unaddedVC.swift in Sources */,
 				16EADF6A20EE872400E0624D /* Day Cell.swift in Sources */,
 				7DE204A724BE23F800E18E4C /* Calender.swift in Sources */,
