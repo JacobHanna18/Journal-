@@ -34,6 +34,17 @@
 		16EF5EDA20F2AF8100846BEC /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED920F2AF8100846BEC /* Class Extensions.swift */; };
 		7D0CE3D822DE01990088CFD9 /* SwipeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0CE3D522DE018D0088CFD9 /* SwipeView.framework */; };
 		7D0CE3D922DE01990088CFD9 /* SwipeView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0CE3D522DE018D0088CFD9 /* SwipeView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7D1A904D24BC7F74002C6AD7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA9081A24BB8F1A00FA5F72 /* WidgetKit.framework */; };
+		7D1A904E24BC7F74002C6AD7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */; };
+		7D1A905124BC7F74002C6AD7 /* DayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905024BC7F74002C6AD7 /* DayWidget.swift */; };
+		7D1A905424BC7F76002C6AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D1A905324BC7F76002C6AD7 /* Assets.xcassets */; };
+		7D1A905624BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */; };
+		7D1A905724BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */; };
+		7D1A905A24BC7F76002C6AD7 /* DayWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7D1A906724BC8374002C6AD7 /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED920F2AF8100846BEC /* Class Extensions.swift */; };
+		7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E898C220EF8C8000078F29 /* Back Up.swift */; };
+		7D1A906C24BC8477002C6AD7 /* Settings Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED720F2AD0D00846BEC /* Settings Classes.swift */; };
+		7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */; };
 		7D51A4E72339507800F11FE3 /* Journal_PlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */; };
 		7D51A4F52339508000F11FE3 /* Journal_PlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4F42339508000F11FE3 /* Journal_PlusTests.swift */; };
 		7DA907E924BB7B5600FA5F72 /* Red-DARK@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907BD24BB7B4E00FA5F72 /* Red-DARK@3x.png */; };
@@ -80,6 +91,8 @@
 		7DA9081224BB7B5600FA5F72 /* Purple-DARK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E624BB7B5500FA5F72 /* Purple-DARK@2x.png */; };
 		7DA9081324BB7B5600FA5F72 /* Dark Pink@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E724BB7B5500FA5F72 /* Dark Pink@3x.png */; };
 		7DA9081424BB7B5600FA5F72 /* Purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E824BB7B5600FA5F72 /* Purple@2x.png */; };
+		7DE204A724BE23F800E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
+		7DE204AB24BE27DC00E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +109,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 1692AAE322ABDDF700FF5918;
 			remoteInfo = SwipeViewTests;
+		};
+		7D1A905824BC7F76002C6AD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16B8A57B20EE7BB900AFE7D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D1A904B24BC7F74002C6AD7;
+			remoteInfo = DayWidgetExtension;
 		};
 		7D51A4E92339507800F11FE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -123,6 +143,17 @@
 				7D0CE3D922DE01990088CFD9 /* SwipeView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA9082E24BB8F2300FA5F72 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7D1A905A24BC7F76002C6AD7 /* DayWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -162,6 +193,13 @@
 		16EF5ED720F2AD0D00846BEC /* Settings Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings Classes.swift"; sourceTree = "<group>"; };
 		16EF5ED920F2AF8100846BEC /* Class Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Class Extensions.swift"; sourceTree = "<group>"; };
 		7D0CE3CF22DE018D0088CFD9 /* SwipeView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwipeView.xcodeproj; path = ../SwipeView/SwipeView.xcodeproj; sourceTree = "<group>"; };
+		7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D1A905024BC7F74002C6AD7 /* DayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWidget.swift; sourceTree = "<group>"; };
+		7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DayWidget.intentdefinition; sourceTree = "<group>"; };
+		7D1A905324BC7F76002C6AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D1A905524BC7F76002C6AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppSettings.swift; sourceTree = "<group>"; };
+		7D1A906F24BC8990002C6AD7 /* DayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayWidgetExtension.entitlements; sourceTree = "<group>"; };
 		7D51A4E42339507800F11FE3 /* Journal PlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Journal PlusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal_PlusUITests.swift; sourceTree = "<group>"; };
 		7D51A4E82339507800F11FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -212,6 +250,10 @@
 		7DA907E624BB7B5500FA5F72 /* Purple-DARK@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Purple-DARK@2x.png"; sourceTree = "<group>"; };
 		7DA907E724BB7B5500FA5F72 /* Dark Pink@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dark Pink@3x.png"; sourceTree = "<group>"; };
 		7DA907E824BB7B5600FA5F72 /* Purple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Purple@2x.png"; sourceTree = "<group>"; };
+		7DA9081A24BB8F1A00FA5F72 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7DA9082A24BB8F2200FA5F72 /* JournalWExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JournalWExtension.entitlements; sourceTree = "<group>"; };
+		7DE204A624BE23F800E18E4C /* Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +262,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D0CE3D822DE01990088CFD9 /* SwipeView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D1A904924BC7F74002C6AD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D1A904E24BC7F74002C6AD7 /* SwiftUI.framework in Frameworks */,
+				7D1A904D24BC7F74002C6AD7 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				1692AB1A22ABE11A00FF5918 /* SwipeView.framework */,
+				7DA9081A24BB8F1A00FA5F72 /* WidgetKit.framework */,
+				7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,12 +304,15 @@
 		16B8A57A20EE7BB900AFE7D1 = {
 			isa = PBXGroup;
 			children = (
+				7D1A906F24BC8990002C6AD7 /* DayWidgetExtension.entitlements */,
+				7DA9082A24BB8F2200FA5F72 /* JournalWExtension.entitlements */,
 				7D0CE3CF22DE018D0088CFD9 /* SwipeView.xcodeproj */,
 				16B8A58520EE7BB900AFE7D1 /* Journal Plus */,
 				16B8A59A20EE7BC000AFE7D1 /* Journal PlusTests */,
 				16B8A5A520EE7BC000AFE7D1 /* Journal PlusUITests */,
 				7D51A4E52339507800F11FE3 /* Journal PlusUITests */,
 				7D51A4F32339508000F11FE3 /* Journal PlusTests */,
+				7D1A904F24BC7F74002C6AD7 /* DayWidget */,
 				16B8A58420EE7BB900AFE7D1 /* Products */,
 				1692AB1922ABE11A00FF5918 /* Frameworks */,
 			);
@@ -268,6 +324,7 @@
 				16B8A58320EE7BB900AFE7D1 /* Journal Plus.app */,
 				7D51A4E42339507800F11FE3 /* Journal PlusUITests.xctest */,
 				7D51A4F22339508000F11FE3 /* Journal PlusTests.xctest */,
+				7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -334,6 +391,7 @@
 				16B8A5BD20EE7E7400AFE7D1 /* Calendar View.swift */,
 				16EADF6820EE872400E0624D /* Day Cell.swift */,
 				16EADF6920EE872400E0624D /* Day Cell.xib */,
+				7DE204A624BE23F800E18E4C /* Calender.swift */,
 			);
 			path = Calneder;
 			sourceTree = "<group>";
@@ -357,6 +415,7 @@
 			children = (
 				16E898C220EF8C8000078F29 /* Back Up.swift */,
 				16EF5ED720F2AD0D00846BEC /* Settings Classes.swift */,
+				7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */,
 				16EF5ED920F2AF8100846BEC /* Class Extensions.swift */,
 				169A23E62100A0FD007DA34F /* Notifications.swift */,
 				16C055112193782600D43763 /* LabeledVC.swift */,
@@ -372,6 +431,17 @@
 				7D0CE3D722DE018D0088CFD9 /* SwipeViewTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7D1A904F24BC7F74002C6AD7 /* DayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7D1A905024BC7F74002C6AD7 /* DayWidget.swift */,
+				7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */,
+				7D1A905324BC7F76002C6AD7 /* Assets.xcassets */,
+				7D1A905524BC7F76002C6AD7 /* Info.plist */,
+			);
+			path = DayWidget;
 			sourceTree = "<group>";
 		};
 		7D51A4E52339507800F11FE3 /* Journal PlusUITests */ = {
@@ -454,15 +524,34 @@
 				16B8A58020EE7BB900AFE7D1 /* Frameworks */,
 				16B8A58120EE7BB900AFE7D1 /* Resources */,
 				16EC52AF22AD5C5B00733185 /* Embed Frameworks */,
+				7DA9082E24BB8F2300FA5F72 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7D1A905924BC7F76002C6AD7 /* PBXTargetDependency */,
 			);
 			name = "Journal Plus";
 			productName = "Journal Plus";
 			productReference = 16B8A58320EE7BB900AFE7D1 /* Journal Plus.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7D1A904B24BC7F74002C6AD7 /* DayWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D1A905B24BC7F76002C6AD7 /* Build configuration list for PBXNativeTarget "DayWidgetExtension" */;
+			buildPhases = (
+				7D1A904824BC7F74002C6AD7 /* Sources */,
+				7D1A904924BC7F74002C6AD7 /* Frameworks */,
+				7D1A904A24BC7F74002C6AD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DayWidgetExtension;
+			productName = DayWidgetExtension;
+			productReference = 7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		7D51A4E32339507800F11FE3 /* Journal PlusUITests */ = {
 			isa = PBXNativeTarget;
@@ -506,8 +595,8 @@
 		16B8A57B20EE7BB900AFE7D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1000;
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Jacob Hanna";
 				TargetAttributes = {
 					16B8A58220EE7BB900AFE7D1 = {
@@ -518,6 +607,9 @@
 								enabled = 1;
 							};
 						};
+					};
+					7D1A904B24BC7F74002C6AD7 = {
+						CreatedOnToolsVersion = 12.0;
 					};
 					7D51A4E32339507800F11FE3 = {
 						CreatedOnToolsVersion = 11.0;
@@ -551,6 +643,7 @@
 				16B8A58220EE7BB900AFE7D1 /* Journal Plus */,
 				7D51A4E32339507800F11FE3 /* Journal PlusUITests */,
 				7D51A4F12339508000F11FE3 /* Journal PlusTests */,
+				7D1A904B24BC7F74002C6AD7 /* DayWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -631,6 +724,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D1A904A24BC7F74002C6AD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D1A905424BC7F76002C6AD7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D51A4E22339507800F11FE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -655,21 +756,37 @@
 				16C055122193782600D43763 /* LabeledVC.swift in Sources */,
 				16EF5ED820F2AD0D00846BEC /* Settings Classes.swift in Sources */,
 				16B8A5BE20EE7E7400AFE7D1 /* Calendar View.swift in Sources */,
+				7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */,
 				16B8A58920EE7BB900AFE7D1 /* CalenderVC.swift in Sources */,
 				16CA266C20F88194005CF903 /* ListTableView.swift in Sources */,
 				16A3DAA220F88C5100EE72E2 /* unaddedVC.swift in Sources */,
 				16EADF6A20EE872400E0624D /* Day Cell.swift in Sources */,
+				7DE204A724BE23F800E18E4C /* Calender.swift in Sources */,
 				165C93F921FB6B67004147BB /* Filters Exapnded.swift in Sources */,
 				16E898C720EFCF3000078F29 /* settingsVC.swift in Sources */,
 				16848C7321FA89F500C6EB17 /* SwipeViewPresentation.swift in Sources */,
 				16CA266F20F881AB005CF903 /* ListCell.swift in Sources */,
 				169A23E72100A0FD007DA34F /* Notifications.swift in Sources */,
+				7D1A905724BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */,
 				16EF5EDA20F2AF8100846BEC /* Class Extensions.swift in Sources */,
 				16E898C520EFC1A900078F29 /* SearchTitlesVC.swift in Sources */,
 				1625226720FC030C005E1860 /* duplicatesVC.swift in Sources */,
 				16E898C320EF8C8000078F29 /* Back Up.swift in Sources */,
 				16848C7521FA9B9200C6EB17 /* RemindersVC.swift in Sources */,
 				16B8A58720EE7BB900AFE7D1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D1A904824BC7F74002C6AD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D1A905124BC7F74002C6AD7 /* DayWidget.swift in Sources */,
+				7D1A905624BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */,
+				7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */,
+				7D1A906C24BC8477002C6AD7 /* Settings Classes.swift in Sources */,
+				7D1A906724BC8374002C6AD7 /* Class Extensions.swift in Sources */,
+				7DE204AB24BE27DC00E18E4C /* Calender.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +809,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7D1A905924BC7F76002C6AD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D1A904B24BC7F74002C6AD7 /* DayWidgetExtension */;
+			targetProxy = 7D1A905824BC7F76002C6AD7 /* PBXContainerItemProxy */;
+		};
 		7D51A4EA2339507800F11FE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 16B8A58220EE7BB900AFE7D1 /* Journal Plus */;
@@ -750,6 +872,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -777,7 +900,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -812,6 +935,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -833,7 +957,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -845,6 +969,7 @@
 		16B8A5AC20EE7BC000AFE7D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Journal Plus/Journal Plus.entitlements";
@@ -875,7 +1000,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_UIKITFORMAC = NO;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -885,6 +1010,7 @@
 		16B8A5AD20EE7BC000AFE7D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Journal Plus/Journal Plus.entitlements";
@@ -915,7 +1041,57 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTS_UIKITFORMAC = NO;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7D1A905C24BC7F76002C6AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DayWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26VASZ3327;
+				INFOPLIST_FILE = DayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.DayWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D1A905D24BC7F76002C6AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DayWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26VASZ3327;
+				INFOPLIST_FILE = DayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.DayWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1024,6 +1200,15 @@
 			buildConfigurations = (
 				16B8A5AC20EE7BC000AFE7D1 /* Debug */,
 				16B8A5AD20EE7BC000AFE7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D1A905B24BC7F76002C6AD7 /* Build configuration list for PBXNativeTarget "DayWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D1A905C24BC7F76002C6AD7 /* Debug */,
+				7D1A905D24BC7F76002C6AD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

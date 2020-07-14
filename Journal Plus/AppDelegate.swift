@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         UNUserNotificationCenter.current().delegate = self
         mainWindow = window!
-        mainWindow.tintColor = Color.value
+        mainWindow.tintColor = AppTintColor.value
         
         Notifications.requestAutharization()
         

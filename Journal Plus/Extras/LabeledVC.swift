@@ -22,7 +22,7 @@ class LabeledVC: UIViewController {
         label.text = text
     }
     
-    func set (_ text : String, _ color : UIColor = Color.value){
+    func set (_ text : String, _ color : UIColor = AppTintColor.value){
         self.text = text
         self.color = color
     }

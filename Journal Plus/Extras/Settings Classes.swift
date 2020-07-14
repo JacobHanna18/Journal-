@@ -8,7 +8,11 @@
 
 import UIKit
 import SwipeView
+import WidgetKit
 
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+let fullWeek = ["Sunday", "Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 protocol Setting{
     associatedtype T
@@ -91,60 +95,31 @@ extension CodableSetting{
     }
 }
 
-class Color : KeyedSetting{
+class AppTintColor : KeyedSetting{
     
     static var last: UIColor? = nil
     
     static let key = "colorBackUpKey2"
     static let defaultValue = UIColor(named: "Green")!
-    
-    static func updated(_ newValue: UIColor) {
-        mainWindow.tintColor = newValue
-    }
 
 }
 
-class Icon{
+class WidgetBackgroundColor : KeyedSetting{
     
+    static var last: UIColor? = nil
     
-    class Index : KeyedSetting{
-        static var last: Int? = nil
-        static let key = "IconIndexBackUpKey"
-        static let defaultValue = 6
-    }
-    class Dark : KeyedSetting{
-        static var last: Bool? = nil
-        static let key = "IconDarknessBackUpKey"
-        static let defaultValue = false
-    }
+    static let key = "WidgetBackgroundColorBackUpKey"
+    static let defaultValue = UIColor.white
+
+}
+
+class WidgetTextColor : KeyedSetting{
     
+    static var last: UIColor? = nil
     
-    static func setIcon (at index : Int, dark : Bool){
-        let name = "\(names[index])\(dark ? "-DARK" : "")"
-        UIApplication.shared.setAlternateIconName(name) { (err) in
-            if let e = err{
-                print(e.localizedDescription)
-            }else{
-                Index.value = index
-                Dark.value = dark
-                TopSwipeView.reload?()
-            }
-        }
-    }
-    
-    static func get (dark : Bool) -> Int{
-        if dark == Dark.value{
-            return Index.value
-        }else{
-            return -1
-        }
-    }
-    
-    static func isCurrent (at index : Int, dark : Bool) -> Bool{
-        return Index.value == index && Dark.value == dark
-    }
-    
-    static let names = ["Black","Dark Red","Red","Orange","Yellow","Cyan","Green","Blue","Purple","Dark Pink","Pink"]
+    static let key = "WidgetTextColorBackUpKey"
+    static let defaultValue = UIColor.white
+
 }
 
 class DateStyle : CodableSetting{
@@ -207,6 +182,7 @@ class Titles : CodableSetting{
             }else{
                 Titles.value[y]?[m]?[d]?.title = title
             }
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -230,6 +206,7 @@ class Titles : CodableSetting{
                 Titles.value[y]?[m] = [:]
             }
             Titles.value[y]?[m]?[d] = title
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -260,18 +237,14 @@ class Titles : CodableSetting{
         
         if(Titles.value[y]?[m]?.isEmpty ?? false){
             Titles.value[y]?.removeValue(forKey: m)
-            print("part 1")
         }
         if(Titles.value[y]?.isEmpty ?? false){
             Titles.value.removeValue(forKey: y)
-            print("part 2")
         }
         if Titles.value.isEmpty{
             Titles.restoreValue()
-            print("we are here");
         }
-        print(y,m,d)
-        print(Titles.value)
+        WidgetCenter.shared.reloadAllTimelines()
         
     }
     
@@ -435,7 +408,13 @@ class TransferStatus : KeyedSetting{
 
 func getOldTitles() -> [String:String]{
     if let sched = oldBackUp(TransferStatus.titlesBackUpKey).anyObjectValue as? Data{
-        return NSKeyedUnarchiver.unarchiveObject(with: sched as Data) as! [String : String]
+        do{
+            return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(sched as Data) as! [String : String]
+        }
+        catch{
+            return[:]
+        }
+        
     }else{
         return [:]
     }

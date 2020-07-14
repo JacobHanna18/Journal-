@@ -45,18 +45,30 @@ class BackUp{
     }
     
     func set<T> (_ value : T){
-        let data = NSKeyedArchiver.archivedData(withRootObject: value) //archiving
-        defaults.set(data, forKey: code)
-        defaults.synchronize()
+
+        do{
+            let data = try NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
+            defaults.set(data, forKey: code)
+            defaults.synchronize()
+        }
+        catch{
+            return
+        }
+        
     }
     
     func get<T>() -> T?{
         if let data = defaults.value(forKey: code) as? Data{
-            if let titles = NSKeyedUnarchiver.unarchiveObject(with: data) as? T{
-                return titles
-            }else{
+            do{
+                if let titles = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? T{
+                    return titles
+                }else{
+                    return nil
+                    
+                }
+            }
+            catch{
                 return nil
-                
             }
             
         }else{

@@ -13,7 +13,7 @@ enum MonthChangeType {
 protocol CalenderDelegate : class {
     
     func dayChanged (day :Day, old : Day, onCalender : Bool)
-    func monthChanged (month : Int, year : Int, type : MonthChangeType)
+    func monthChanged (calender : Calender, type : MonthChangeType)
     func highlighted (day : Day) -> Bool
     
     func indecator (day : Day) -> Bool
@@ -23,14 +23,12 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     let inset : CGFloat = 2
     let daysHeight : CGFloat = 17
-    let dayRows : Int = 6
-    var dayCount : Int {
-        return dayRows * 7
-    }
+    
     let cellConrnerRaduis : CGFloat = 10
     let highlightedAlpha : CGFloat = 0.4
     
     let cellID = "calenderViewCellID"
+    
     let dayTitles = ["Sun", "Mon", "Tue","Wed","Thu","Fri","Sat"]
     
     var selectedColor = UIColor.blue //sets to tint color at start
@@ -57,21 +55,15 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     }
     
     weak var calenderDelegate : CalenderDelegate? = nil
-    var month : Int = Day().m
-    var year : Int = Day().y
+    
+    var calender : Calender = Calender()
     var selectedDay = Day()
-    
-    var days : [Day] = []
-    
-    var start = 0
-    var end = 0
     
     override func awakeFromNib() {
         self.collectionViewLayout = createLayout ()
         delegate = self
         dataSource = self
         register(UINib(nibName: "Day Cell", bundle: nil), forCellWithReuseIdentifier: cellID)
-        days = [Day](repeating: Day(), count: dayCount)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         leftSwipe.direction = .left
         self.addGestureRecognizer(leftSwipe)
@@ -101,54 +93,25 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     }
     
     func nextMonth(){
-        month+=1
-        if month == 13{
-            month = 1
-            year+=1
-        }
-        getDates()
-        calenderDelegate?.monthChanged(month: month, year: year, type: .next)
+        calender.nextMonth()
+        self.reloadData()
+        calenderDelegate?.monthChanged(calender: calender, type: .next)
     }
     
     func prevMonth(){
-        month-=1
-        if month == 0{
-            month = 12
-            year-=1
-        }
-        getDates()
-        calenderDelegate?.monthChanged(month: month, year: year, type: .prev)
+        calender.prevMonth()
+        self.reloadData()
+        calenderDelegate?.monthChanged(calender: calender, type: .prev)
     }
     
-    func set (month : Int? = nil, year: Int? = nil){
-        let m = month != nil ? month! : -1
-        if(m>=1 && m<=12){
-            self.month = month!
-        }
-        self.year = year != nil ? year! : self.year
+    func set (month m : Int? = nil, year y: Int? = nil){
+        calender.set(month: m, year: y)
         getDates()
-        calenderDelegate?.monthChanged(month: self.month, year: self.year, type: .random)
+        calenderDelegate?.monthChanged(calender: calender, type: .random)
     }
     
     func getDates(){
-        var first = Day(year,month,1)
-        var day = first
-        start = day.weekday - 1
-        days[day.weekday - 1] = day
-        day = day.prev
-        while(day.weekday != 7){
-            days[day.weekday - 1] = day
-            day = day.prev
-        }
-        var ended = false
-        for i in first.weekday ..< dayCount{
-            first = first.next
-            days[i] = first
-            if(first.m != month && !ended){
-                end = i-1;
-                ended = true
-            }
-        }
+        calender.getDates()
         reloadData()
     }
     
@@ -156,8 +119,8 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1{
             let old = selectedDay
-            selectedDay = days[indexPath.row]
-            calenderDelegate?.dayChanged(day: days[indexPath.row], old: old, onCalender: true)
+            selectedDay = calender.days[indexPath.row]
+            calenderDelegate?.dayChanged(day: calender.days[indexPath.row], old: old, onCalender: true)
             reloadData()
         }
     }
@@ -168,7 +131,7 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 1{
-            return dayCount
+            return calender.dayCount
         }else{
             return 7
         }
@@ -176,7 +139,7 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! DayCell
-        let day = days[indexPath.row]
+        let day = calender.days[indexPath.row]
         cell.layer.cornerRadius = cellConrnerRaduis
         
         if indexPath.section == 1{
@@ -187,7 +150,7 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
                 cell.backgroundColor = selectedColor
                 cell.label.textColor = background
             }else{
-                if (indexPath.row >= start && indexPath.row <= end){
+                if (indexPath.row >= calender.start && indexPath.row <= calender.end){
                     cell.label.textColor = text
                 }else{
                     cell.label.textColor = secondary
@@ -216,7 +179,7 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             let inset = self.inset
-            let rowheight = (self.frame.height - self.daysHeight)/CGFloat(self.dayRows)
+            let rowheight = (self.frame.height - self.daysHeight)/CGFloat(self.calender.dayRows)
             
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                   heightDimension: .fractionalHeight(1.0))

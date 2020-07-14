@@ -185,14 +185,3 @@ class ListTableView: UITableView, UITableViewDelegate, UITableViewDataSource, UI
         }))
     }
 }
-
-protocol ToString {
-    var toString : String {get}
-    var fullString : String {get}
-}
-
-extension ToString{
-    var fullString : String{
-        return toString
-    }
-}

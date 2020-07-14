@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications
 import SwipeView
+import WidgetKit
 
 class SettingsVC: UITableViewController{
     
@@ -37,7 +38,7 @@ class SettingsVC: UITableViewController{
     @IBAction func dateStyleChanged(_ sender: Any) {
         DateStyle.value = DateStyle.styles[dateStyleSC.selectedSegmentIndex]
         datePreview.text = Date().toString
-        
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     @IBAction func extendButtonChanged(_ sender: UISwitch) {
@@ -92,17 +93,45 @@ class SettingsVC: UITableViewController{
                 }, labels: darkArr, defaultIndex: 0)
                 
             ]
-            let appColorPoint = [InputPoint<UIColor>("", get: Color.value, set: { (color) in
-                Color.value = color
+            let appColorPoint = [InputPoint<UIColor>("", get: AppTintColor.value, set: { (color) in
+                AppTintColor.value = color
                 TopSwipeView.view?.view.tintColor = color
+                WidgetCenter.shared.reloadAllTimelines()
             })]
-            return UIApplication.shared.supportsAlternateIcons ? appColorPoint + appIconPoints : appColorPoint
+            return appColorPoint + (UIApplication.shared.supportsAlternateIcons ? appIconPoints : [])
         }, title: "Application Color", delete: {}, .none))
+    }
+    
+    func widgetSetting(){
+        
+        self.presentPointView(PointsList(points: { () -> [MainPoint] in
+            let background = [InputPoint<UIColor>("Background Color", get: WidgetBackgroundColor.value, set: { (color) in
+                WidgetBackgroundColor.value = color
+                WidgetCenter.shared.reloadAllTimelines()
+            })]
+            
+            let text = [InputPoint<UIColor>("Text Color", get: WidgetTextColor.value, set: { (color) in
+                WidgetTextColor.value = color
+                WidgetCenter.shared.reloadAllTimelines()
+            })]
+            
+            let match = [DataPoint<String>("Match App Icon", get: "", tap: { () -> Bool in
+                
+                WidgetBackgroundColor.value = Icon.Dark.value ? UIColor.black : UIColor.white
+                WidgetTextColor.value = UIColor(named: Icon.names[Icon.Index.value]) ?? UIColor.white
+                
+                return true
+            })]
+            
+            return background + text + match
+            
+        }, title: "Widget", delete: {}, .none))
+        
     }
     
     func checkNotificationAccess(){
         switch Notifications.settings!.authorizationStatus{
-        case .authorized, .provisional:
+        case .authorized, .provisional, .ephemeral:
             notificationSwitch.isEnabled = true
             notificationSwitch.isOn = Notifications.On.value
         case .notDetermined:
@@ -149,6 +178,8 @@ class SettingsVC: UITableViewController{
             }
         case "ColorSelectionCellID":
             presentColorPicker()
+        case "WidgetSettingsCellID":
+            widgetSetting()
         default:
             break
         }

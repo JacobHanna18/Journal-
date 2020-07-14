@@ -7,6 +7,25 @@
 //
 
 import UIKit
+import SwiftUI
+
+
+protocol ToString {
+    var toString : String {get}
+    var fullString : String {get}
+}
+
+extension ToString{
+    var fullString : String{
+        return toString
+    }
+}
+
+extension UIColor{
+    var toColor : Color{
+        return Color(self)
+    }
+}
 
 extension String : ToString{
     var day : Day{
@@ -155,7 +174,7 @@ extension UISwitch{
         tintColorDidChange()
     }
     override open func tintColorDidChange() {
-        self.onTintColor = Color.value
+        self.onTintColor = AppTintColor.value
     }
 }
 
@@ -287,3 +306,4 @@ class Day: Comparable, ToString, CustomStringConvertible, Codable{
         y = try values.decode(Int.self, forKey: .year)
     }
 }
+

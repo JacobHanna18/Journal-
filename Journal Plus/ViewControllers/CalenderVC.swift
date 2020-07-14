@@ -12,13 +12,11 @@ import SwipeView
 
 var tabBar = UITabBarController()
 
-let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
 class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloadable {
      @IBOutlet weak var titleTF: UITextField!
      @IBOutlet weak var prevButton: UIButton!
      @IBOutlet weak var nextButton: UIButton!
-     @IBOutlet weak var calender: CalendarView!
+     @IBOutlet weak var calenderView: CalendarView!
      
      @IBOutlet weak var monthButton: UIButton!
      
@@ -43,9 +41,9 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
           super.viewDidLoad()
           
           tabBar = self.tabBarController!
-          calender.calenderDelegate = self
-          calender.select(day: Day())
-          monthChanged(month: calender.month, year: calender.year, type: .random)
+          calenderView.calenderDelegate = self
+          calenderView.select(day: Day())
+          monthChanged(calender: calenderView.calender, type: .random)
           
           
           NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { (notification) in
@@ -102,20 +100,20 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
      }
      
      @IBAction func titleChanged(_ sender: Any) {
-          titles[calender.selectedDay] = titleTF.text
+          titles[calenderView.selectedDay] = titleTF.text
      }
      @IBAction func prevMonth(_ sender: Any) {
-          calender.prevMonth()
+          calenderView.prevMonth()
      }
      @IBAction func nextMonth(_ sender: Any) {
-          calender.nextMonth()
+          calenderView.nextMonth()
      }
      @IBAction func expandTitle(_ sender: Any) {
-          if calender.selectedDay.enabled{
-               self.presentExpandedView(calender.selectedDay)
+          if calenderView.selectedDay.enabled{
+               self.presentExpandedView(calenderView.selectedDay)
           }else{
                let r = Reminder()
-               r.day = calender.selectedDay
+               r.day = calenderView.selectedDay
                r.time = Time(h : Date().hour, m : Date().minute)
                self.presentReminderView(r)
           }
@@ -124,7 +122,7 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
      
      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
           textField.resignFirstResponder()
-          presentDuplicateAlert(day: calender.selectedDay)
+          presentDuplicateAlert(day: calenderView.selectedDay)
           presentReview()
           return true
      }
@@ -162,7 +160,7 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
           }
      }
      
-     func monthChanged(month: Int, year: Int, type: MonthChangeType) {
+     func monthChanged(calender : Calender, type: MonthChangeType) {
           monthButton.setTitle("\(months[calender.month-1]) \(calender.year)", for: .normal)
           switch type {
           case .next:
@@ -185,14 +183,14 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
           self.presentPointView(PointsList(points: { () -> [MainPoint] in
                return [
                     DataPoint<String>("Today",tap: { () -> Bool in
-                         self.calender.select(day: Day())
+                         self.calenderView.select(day: Day())
                          return true
                     }),
-                    DateInputPoint("Select Date", get: self.calender.selectedDay.toDate, set: { (date) in
-                         self.calender.select(day: date.toDay)
+                    DateInputPoint("Select Date", get: self.calenderView.selectedDay.toDate, set: { (date) in
+                         self.calenderView.select(day: date.toDay)
                     }, mode: .date, minimum: nil),
                     DataPoint<String>("Random Title",tap: { () -> Bool in
-                         self.calender.select(day: Titles.array.randomElement()?.0 ?? Day())
+                         self.calenderView.select(day: Titles.array.randomElement()?.0 ?? Day())
                          return true
                     })
                ]
@@ -200,12 +198,12 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
      }
      
      func reload(){
-          titleTF.text = titles[calender.selectedDay]
-          calender.reloadData()
+          titleTF.text = titles[calenderView.selectedDay]
+          calenderView.reloadData()
      }
      
      func setDateLabel(){
-          selectedDateButton.setTitle(calender.selectedDay.toString, for: .normal)
+          selectedDateButton.setTitle(calenderView.selectedDay.toString, for: .normal)
      }
      
      func highlighted(day: Day) -> Bool {
@@ -215,8 +213,8 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
           return Titles.extented(day: day)
      }
      func expandButtonReload(){
-          expandButton.isHidden = calender.selectedDay.enabled ? (ExtendButton.value ? false : !keyboardShowing )  : false
-          expandButton.setTitle(calender.selectedDay.enabled ? "Expand Title" : "Add Reminder", for: .normal)
+          expandButton.isHidden = calenderView.selectedDay.enabled ? (ExtendButton.value ? false : !keyboardShowing )  : false
+          expandButton.setTitle(calenderView.selectedDay.enabled ? "Expand Title" : "Add Reminder", for: .normal)
      }
      @IBAction func monthTapped(_ sender: Any) {
           selectedDateTapped(sender)
@@ -225,6 +223,6 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
 }
 
 func selectDate (day : Day){
-     ((tabBar.viewControllers?[0] as? UINavigationController)?.topViewController as? CalenderVC)?.calender.select(day: day)
+     ((tabBar.viewControllers?[0] as? UINavigationController)?.topViewController as? CalenderVC)?.calenderView.select(day: day)
      tabBar.selectedIndex = 0
 }

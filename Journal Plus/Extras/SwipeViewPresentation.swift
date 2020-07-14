@@ -31,7 +31,7 @@ extension UIViewController{
     func presentExpandedView (_ day : Day){
         self.presentPointView(PointsList(points: { () -> [MainPoint] in
             return [
-                LongInput<String>(day.toString, height: 500, background: Color.value.withAlphaComponent(0.1), get: titles[day,true], set: { (str) in
+                LongInput<String>(day.toString, height: 500, background: AppTintColor.value.withAlphaComponent(0.1), get: titles[day,true], set: { (str) in
                     titles[day,true] = str
                 })
             ]
@@ -42,7 +42,7 @@ extension UIViewController{
     //Present duplicate titles
     func presentDuplicate (_ days : [Day],title : String){
         
-        var old : [(Day , String)] = days.map { (day) -> (Day, String) in
+        let old : [(Day , String)] = days.map { (day) -> (Day, String) in
             return (day, titles[day] ?? "")
         }
         
