@@ -85,17 +85,27 @@ struct PlaceholderView: View {
 struct DayWidgetEntryView: View {
     var entry: Provider.Entry
     
+    @Environment(\.widgetFamily) var family
+    
     var body: some View {
         
         ZStack{
             entry.background.edgesIgnoringSafeArea(.all)
             
+            
             HStack{
                 TodayView(entry: entry)
-                CalenderView(calender: entry.calender,highlights: entry.highlights, tintColor: entry.tint)
-                    .padding(.all, 8.0)
+
+                
+                
+                if(family == WidgetFamily.systemMedium){
+                    CalenderView(calender: entry.calender,highlights: entry.highlights, tintColor: entry.tint)
+                        .padding(.all, 8.0)
+                }
+                
                     
             }
+        
         }
         .foregroundColor(entry.textColor)
         .widgetURL(URL(string: "journalPlus://\(entry.date.code)")!)
