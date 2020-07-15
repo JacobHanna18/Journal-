@@ -29,8 +29,6 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
     
     let cellID = "calenderViewCellID"
     
-    let dayTitles = ["Sun", "Mon", "Tue","Wed","Thu","Fri","Sat"]
-    
     var selectedColor = UIColor.blue //sets to tint color at start
     var background : UIColor{
         if #available(iOS 13.0, *) {
@@ -71,7 +69,6 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
         rightSwipe.direction = .right
         self.addGestureRecognizer(rightSwipe)
         selectedColor = tintColor
-        getDates()
     }
     override func tintColorDidChange() {
         selectedColor = tintColor
@@ -167,7 +164,7 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
             cell.indicatorView.backgroundColor = UIColor.clear
             cell.backgroundColor = background
             cell.label.textColor = text
-            cell.setLabel(dayTitles[indexPath.row])
+            cell.setLabel(calender.dayTitles[indexPath.row])
             cell.alpha = 1
         }
         

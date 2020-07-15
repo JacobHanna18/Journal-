@@ -117,6 +117,12 @@ extension Date : ToString{
     var toDay : Day{
         return Day(self)
     }
+    
+    var dayStart : Date{
+        let calender = Calendar.current
+        let comp = DateComponents(year:year, month: month,day: day,hour: 0,minute: 0,second: 0)
+        return calender.date(from: comp)!
+    }
 
     var toString : String{
         let formatter = DateFormatter()

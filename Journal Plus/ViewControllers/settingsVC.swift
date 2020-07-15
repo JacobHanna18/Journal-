@@ -102,34 +102,6 @@ class SettingsVC: UITableViewController{
         }, title: "Application Color", delete: {}, .none))
     }
     
-    func widgetSetting(){
-        
-        self.presentPointView(PointsList(points: { () -> [MainPoint] in
-            let background = [InputPoint<UIColor>("Background Color", get: WidgetBackgroundColor.value, set: { (color) in
-                WidgetBackgroundColor.value = color
-                WidgetCenter.shared.reloadAllTimelines()
-            })]
-            
-            let text = [InputPoint<UIColor>("Text Color", get: WidgetTextColor.value, set: { (color) in
-                WidgetTextColor.value = color
-                WidgetCenter.shared.reloadAllTimelines()
-            })]
-            
-            let match = [DataPoint<String>("Match App Icon", get: "", tap: { () -> Bool in
-                
-                WidgetBackgroundColor.value = Icon.Dark.value ? UIColor.black : UIColor.white
-                WidgetTextColor.value = UIColor(named: Icon.names[Icon.Index.value]) ?? UIColor.white
-                WidgetCenter.shared.reloadAllTimelines()
-                
-                return true
-            })]
-            
-            return background + text + match
-            
-        }, title: "Widget", delete: {}, .none))
-        
-    }
-    
     func checkNotificationAccess(){
         switch Notifications.settings!.authorizationStatus{
         case .authorized, .provisional, .ephemeral:
@@ -179,8 +151,6 @@ class SettingsVC: UITableViewController{
             }
         case "ColorSelectionCellID":
             presentColorPicker()
-        case "WidgetSettingsCellID":
-            widgetSetting()
         default:
             break
         }

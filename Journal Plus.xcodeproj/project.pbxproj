@@ -34,6 +34,7 @@
 		16EF5EDA20F2AF8100846BEC /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED920F2AF8100846BEC /* Class Extensions.swift */; };
 		7D0CE3D822DE01990088CFD9 /* SwipeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0CE3D522DE018D0088CFD9 /* SwipeView.framework */; };
 		7D0CE3D922DE01990088CFD9 /* SwipeView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D0CE3D522DE018D0088CFD9 /* SwipeView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7D104A4B24BF8ECA007DDD42 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1625226820FC07D1005E1860 /* colors.xcassets */; };
 		7D1A904D24BC7F74002C6AD7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA9081A24BB8F1A00FA5F72 /* WidgetKit.framework */; };
 		7D1A904E24BC7F74002C6AD7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */; };
 		7D1A905124BC7F74002C6AD7 /* DayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905024BC7F74002C6AD7 /* DayWidget.swift */; };
@@ -91,9 +92,9 @@
 		7DA9081224BB7B5600FA5F72 /* Purple-DARK@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E624BB7B5500FA5F72 /* Purple-DARK@2x.png */; };
 		7DA9081324BB7B5600FA5F72 /* Dark Pink@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E724BB7B5500FA5F72 /* Dark Pink@3x.png */; };
 		7DA9081424BB7B5600FA5F72 /* Purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E824BB7B5600FA5F72 /* Purple@2x.png */; };
+		7DC411DD24BF65C2003FDF85 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204AC24BE287000E18E4C /* CalenderView.swift */; };
 		7DE204A724BE23F800E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
 		7DE204AB24BE27DC00E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
-		7DE204AD24BE287000E18E4C /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204AC24BE287000E18E4C /* CalenderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -439,10 +440,10 @@
 			isa = PBXGroup;
 			children = (
 				7D1A905024BC7F74002C6AD7 /* DayWidget.swift */,
+				7DE204AC24BE287000E18E4C /* CalenderView.swift */,
 				7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */,
 				7D1A905324BC7F76002C6AD7 /* Assets.xcassets */,
 				7D1A905524BC7F76002C6AD7 /* Info.plist */,
-				7DE204AC24BE287000E18E4C /* CalenderView.swift */,
 			);
 			path = DayWidget;
 			sourceTree = "<group>";
@@ -732,6 +733,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D1A905424BC7F76002C6AD7 /* Assets.xcassets in Resources */,
+				7D104A4B24BF8ECA007DDD42 /* colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,7 +764,6 @@
 				7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */,
 				16B8A58920EE7BB900AFE7D1 /* CalenderVC.swift in Sources */,
 				16CA266C20F88194005CF903 /* ListTableView.swift in Sources */,
-				7DE204AD24BE287000E18E4C /* CalenderView.swift in Sources */,
 				16A3DAA220F88C5100EE72E2 /* unaddedVC.swift in Sources */,
 				16EADF6A20EE872400E0624D /* Day Cell.swift in Sources */,
 				7DE204A724BE23F800E18E4C /* Calender.swift in Sources */,
@@ -788,6 +789,7 @@
 				7D1A905124BC7F74002C6AD7 /* DayWidget.swift in Sources */,
 				7D1A905624BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */,
 				7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */,
+				7DC411DD24BF65C2003FDF85 /* CalenderView.swift in Sources */,
 				7D1A906C24BC8477002C6AD7 /* Settings Classes.swift in Sources */,
 				7D1A906724BC8374002C6AD7 /* Class Extensions.swift in Sources */,
 				7DE204AB24BE27DC00E18E4C /* Calender.swift in Sources */,
@@ -1059,6 +1061,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				INFOPLIST_FILE = DayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1067,6 +1070,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.6;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.DayWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1084,6 +1088,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				INFOPLIST_FILE = DayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1092,6 +1097,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.6;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.DayWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";

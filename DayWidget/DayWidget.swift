@@ -16,19 +16,33 @@ struct Provider: TimelineProvider {
     
     public func snapshot(with context: Context, completion: @escaping (SimpleEntry) -> Void) {
 
-        let entry = SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, forground: Color.black, todayTitle: "Today's Title", prevTitle: "")
+        let calender = Calender()
+        let highlights = calender.days.map { (day) -> Bool in
+            return Titles.contains(day)
+        }
+        
+        let entry = SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: calender,highlights: highlights)
 
         completion(entry)
     }
     
     public func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         
-        WidgetBackgroundColor.reload()
         Titles.reload()
-        WidgetTextColor.reload()
-        let entry = SimpleEntry(date: Date(), day: Date().toDay, background: WidgetBackgroundColor.value.toColor, forground: WidgetTextColor.value.toColor, todayTitle: titles[Date().toDay], prevTitle: titles[Date().toDay.prev])
+        Icon.Dark.reload()
+        Icon.Index.reload()
+        
+        let calender = Calender()
+        let highlights = calender.days.map { (day) -> Bool in
+            return Titles.contains(day)
+        }
+        let background = Icon.Dark.value ? Color.black : Color.white
+        let text = Icon.Dark.value ? Color.white : Color.black
+        let tint = Color(Icon.names[Icon.Index.value])
+        
+        let entry = SimpleEntry(date: Date(), day: Date().toDay, background: background, textColor: text, tint: tint, todayTitle: titles[Date().toDay], prevTitle: titles[Date().toDay.prev], calender: calender, highlights: highlights)
         let entries = [entry]
-        let timeline = Timeline(entries: entries, policy: .never)
+        let timeline = Timeline(entries: entries, policy: .after(Date().toDay.next.toDate.dayStart))
         
         completion(timeline)
     }
@@ -38,56 +52,33 @@ struct SimpleEntry: TimelineEntry {
     public let date: Date
     public let day: Day
     public let background : Color
-    public let forground : Color
+    public let textColor : Color
+    public let tint : Color
     public let todayTitle : String?
     public let prevTitle : String?
+    public let calender : Calender
+    public let highlights : [Bool]
 }
 
 struct PlaceholderView: View {
     
-    let entry = SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, forground: Color.black, todayTitle: "Today's Title", prevTitle: "")
+    
+    
+    private var entry : SimpleEntry
+    
+    init() {
+        
+        let calender = Calender()
+        let highlights = calender.days.map { (day) -> Bool in
+            return false
+        }
+        
+        entry = SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: Calender(), highlights: highlights)
+    }
     
     var body: some View {
         
         DayWidgetEntryView(entry: entry)
-    }
-}
-
-struct TodayView : View{
-    
-    var entry: Provider.Entry
-    
-    var body: some View{
-        VStack{
-            
-            HStack{
-                VStack{
-                    Text("\(fullWeek[entry.day.weekday-1])")
-                        .font(.system(size: 14))
-                        .multilineTextAlignment(.leading)
-                    Text("\(entry.day.d)")
-                        .font(.system(size: 40))
-                        .multilineTextAlignment(.leading)
-                        
-                }
-                .padding(.leading)
-                
-                if(entry.prevTitle == nil){
-                    Spacer()
-                    Text("You didn't add a title yesterday!")
-                        .font(.system(size: 14))
-                        .fontWeight(.bold)
-                    
-                }
-                Spacer()
-            }
-            .padding(.vertical)
-            
-            Text(entry.todayTitle ?? "You havn't added a title today.")
-                .font(.system(size: 16))
-                .multilineTextAlignment(.center)
-            Spacer()
-        }
     }
 }
 
@@ -96,12 +87,17 @@ struct DayWidgetEntryView: View {
     
     var body: some View {
         
-        ZStack {
+        ZStack{
             entry.background.edgesIgnoringSafeArea(.all)
-            TodayView(entry: entry)
             
+            HStack{
+                TodayView(entry: entry)
+                CalenderView(calender: entry.calender,highlights: entry.highlights, tintColor: entry.tint)
+                    .padding(.all, 8.0)
+                    
+            }
         }
-        .foregroundColor(entry.forground)
+        .foregroundColor(entry.textColor)
         .widgetURL(URL(string: "journalPlus://\(entry.date.code)")!)
         
     }
@@ -117,7 +113,7 @@ struct DayWidget: Widget {
         }
         .configurationDisplayName("Today View")
         .description("Check if you added a title today at a glance!")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemMedium])
     }
 }
 
@@ -127,11 +123,12 @@ struct Widget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             
-            TodayView(entry: SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, forground: Color.black, todayTitle: "Today's Title", prevTitle: nil))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
+//            TodayView(entry: SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, forground: Color.black, todayTitle: "Today's Title", prevTitle: nil))
+//                .previewContext(WidgetPreviewContext(family: .systemSmall))
+//
+//            DayWidgetEntryView(entry: SimpleEntry(date: Date(), day: Date().toDay, background: Color.blue, forground: Color.black, todayTitle: "Today's Title", prevTitle: ""))
+//                .previewContext(WidgetPreviewContext(family: .systemSmall))
             
-            DayWidgetEntryView(entry: SimpleEntry(date: Date(), day: Date().toDay, background: Color.blue, forground: Color.black, todayTitle: "Today's Title", prevTitle: ""))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
         }
     }
 }

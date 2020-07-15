@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwipeView
+//import SwipeView
 import WidgetKit
 
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -104,24 +104,6 @@ class AppTintColor : KeyedSetting{
 
 }
 
-class WidgetBackgroundColor : KeyedSetting{
-    
-    static var last: UIColor? = nil
-    
-    static let key = "WidgetBackgroundColorBackUpKey"
-    static let defaultValue = UIColor.white
-
-}
-
-class WidgetTextColor : KeyedSetting{
-    
-    static var last: UIColor? = nil
-    
-    static let key = "WidgetTextColorBackUpKey"
-    static let defaultValue = UIColor.white
-
-}
-
 class DateStyle : CodableSetting{
     
     static var last: DateFormatter.Style? = nil
@@ -147,6 +129,35 @@ class Indicator: KeyedSetting{
     static let key = "expandedIndicatorKey"
     static let defaultValue = true
 }
+
+class Icon{
+    
+    class Index : KeyedSetting{
+        static var last: Int? = nil
+        static let key = "IconIndexBackUpKey"
+        static let defaultValue = 6
+    }
+    class Dark : KeyedSetting{
+        static var last: Bool? = nil
+        static let key = "IconDarknessBackUpKey"
+        static let defaultValue = false
+    }
+    
+    static func get (dark : Bool) -> Int{
+        if dark == Dark.value{
+            return Index.value
+        }else{
+            return -1
+        }
+    }
+    
+    static func isCurrent (at index : Int, dark : Bool) -> Bool{
+        return Index.value == index && Dark.value == dark
+    }
+    
+    static let names = ["Black","Dark Red","Red","Orange","Yellow","Cyan","Green","Blue","Purple","Dark Pink","Pink"]
+}
+
 
 let titles = Titles()
 class Titles : CodableSetting{

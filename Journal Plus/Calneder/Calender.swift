@@ -10,6 +10,9 @@ import Foundation
 
 class Calender{
     
+    let dayTitles = ["Sun", "Mon", "Tue","Wed","Thu","Fri","Sat"]
+    let miniDayTitles = ["S", "M", "T","W","T","F","S"]
+    
     var month : Int = Day().m
     var year : Int = Day().y
     
@@ -25,6 +28,7 @@ class Calender{
     
     init() {
         days = [Day](repeating: Day(), count: dayCount)
+        getDates()
     }
     
     func nextMonth(){
