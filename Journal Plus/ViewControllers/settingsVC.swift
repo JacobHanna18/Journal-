@@ -38,7 +38,6 @@ class SettingsVC: UITableViewController{
     @IBAction func dateStyleChanged(_ sender: Any) {
         DateStyle.value = DateStyle.styles[dateStyleSC.selectedSegmentIndex]
         datePreview.text = Date().toString
-        WidgetCenter.shared.reloadAllTimelines()
     }
     
     @IBAction func extendButtonChanged(_ sender: UISwitch) {
@@ -93,11 +92,22 @@ class SettingsVC: UITableViewController{
                 }, labels: darkArr, defaultIndex: 0)
                 
             ]
-            let appColorPoint = [InputPoint<UIColor>("", get: AppTintColor.value, set: { (color) in
+            
+            var appColorPoint : [MainPoint] = [InputPoint<UIColor>("", get: AppTintColor.value, set: { (color) in
                 AppTintColor.value = color
                 TopSwipeView.view?.view.tintColor = color
-                WidgetCenter.shared.reloadAllTimelines()
             })]
+            
+            if #available(iOS 14.0, *) {
+                let widgetStyle = [SelectionPoint("Widget Style", get: WidgetStyle.value, set: { (i) in
+                    WidgetStyle.value = i
+                }, labels: ["Match App","Match Icon"], defaultIndex: 0)]
+                
+                appColorPoint.insert(contentsOf: widgetStyle, at: 0)
+            } else {
+                // Fallback on earlier versions
+            }
+            
             return appColorPoint + (UIApplication.shared.supportsAlternateIcons ? appIconPoints : [])
         }, title: "Application Color", delete: {}, .none))
     }

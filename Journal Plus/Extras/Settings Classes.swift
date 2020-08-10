@@ -130,6 +130,14 @@ class Indicator: KeyedSetting{
     static let defaultValue = true
 }
 
+class WidgetStyle : KeyedSetting{
+    static var last: Int? = nil
+    static let key = "WidgetStyleBackupKey"
+    static let defaultValue = 0
+    // 0 - match app
+    // 1 - match icon
+}
+
 class Icon{
     
     class Index : KeyedSetting{
@@ -193,7 +201,6 @@ class Titles : CodableSetting{
             }else{
                 Titles.value[y]?[m]?[d]?.title = title
             }
-            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -217,7 +224,6 @@ class Titles : CodableSetting{
                 Titles.value[y]?[m] = [:]
             }
             Titles.value[y]?[m]?[d] = title
-            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -255,7 +261,6 @@ class Titles : CodableSetting{
         if Titles.value.isEmpty{
             Titles.restoreValue()
         }
-        WidgetCenter.shared.reloadAllTimelines()
         
     }
     

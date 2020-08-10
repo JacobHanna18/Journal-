@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import WidgetKit
 
 var mainWindow = UIWindow()
 
@@ -31,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Notifications.requestAutharization()
         
         return true
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void){

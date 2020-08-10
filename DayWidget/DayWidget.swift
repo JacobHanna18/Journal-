@@ -21,7 +21,7 @@ struct Provider: TimelineProvider {
             return Titles.contains(day)
         }
         
-        let entry = SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: calender,highlights: highlights)
+        let entry = SimpleEntry(date: Date(), background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: calender,highlights: highlights)
 
         completion(entry)
     }
@@ -31,16 +31,18 @@ struct Provider: TimelineProvider {
         Titles.reload()
         Icon.Dark.reload()
         Icon.Index.reload()
+        WidgetStyle.reload()
+        AppTintColor.reload()
         
         let calender = Calender()
         let highlights = calender.days.map { (day) -> Bool in
             return Titles.contains(day)
         }
-        let background = Icon.Dark.value ? Color.black : Color.white
-        let text = Icon.Dark.value ? Color.white : Color.black
-        let tint = Color(Icon.names[Icon.Index.value])
+        let background : Color? = WidgetStyle.value == 0 ? nil : (Icon.Dark.value ? Color.black : Color.white)
+        let text = WidgetStyle.value == 0 ? nil : Icon.Dark.value ? Color.white : Color.black
+        let tint = WidgetStyle.value == 0 ? Color(AppTintColor.value) : Color(Icon.names[Icon.Index.value])
         
-        let entry = SimpleEntry(date: Date(), day: Date().toDay, background: background, textColor: text, tint: tint, todayTitle: titles[Date().toDay], prevTitle: titles[Date().toDay.prev], calender: calender, highlights: highlights)
+        let entry = SimpleEntry(date: Date(),background: background, textColor: text, tint: tint, todayTitle: titles[Date().toDay], prevTitle: titles[Date().toDay.prev], calender: calender, highlights: highlights)
         let entries = [entry]
         let timeline = Timeline(entries: entries, policy: .after(Date().toDay.next.toDate.dayStart))
         
@@ -50,9 +52,8 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     public let date: Date
-    public let day: Day
-    public let background : Color
-    public let textColor : Color
+    public let background : Color?
+    public let textColor : Color?
     public let tint : Color
     public let todayTitle : String?
     public let prevTitle : String?
@@ -73,7 +74,7 @@ struct PlaceholderView: View {
             return false
         }
         
-        entry = SimpleEntry(date: Date(), day: Date().toDay, background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: Calender(), highlights: highlights)
+        entry = SimpleEntry(date: Date(), background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: Calender(), highlights: highlights)
     }
     
     var body: some View {
@@ -85,6 +86,38 @@ struct PlaceholderView: View {
 struct DayWidgetEntryView: View {
     var entry: Provider.Entry
     
+    @Environment(\.colorScheme) var colorScheme
+    
+    var backgroundColor : Color{
+        if let c = entry.background{
+            return c
+        }
+        
+        switch colorScheme {
+        case .dark:
+            return Color.black
+        case .light:
+            return Color.white
+        @unknown default:
+            return Color.black
+        }
+    }
+    
+    var textColor : Color{
+        if let c = entry.textColor{
+            return c
+        }
+        
+        switch colorScheme {
+        case .dark:
+            return Color.white
+        case .light:
+            return Color.black
+        @unknown default:
+            return Color.white
+        }
+    }
+    
     @Environment(\.widgetFamily) var family
     
     var body: some View {
@@ -95,8 +128,6 @@ struct DayWidgetEntryView: View {
             
             HStack{
                 TodayView(entry: entry)
-
-                
                 
                 if(family == WidgetFamily.systemMedium){
                     CalenderView(calender: entry.calender,highlights: entry.highlights, tintColor: entry.tint)
@@ -107,7 +138,7 @@ struct DayWidgetEntryView: View {
             }
         
         }
-        .foregroundColor(entry.textColor)
+        .foregroundColor(textColor)
         .widgetURL(URL(string: "journalPlus://\(entry.date.code)")!)
         
     }
@@ -123,7 +154,7 @@ struct DayWidget: Widget {
         }
         .configurationDisplayName("Today View")
         .description("Check if you added a title today at a glance!")
-        .supportedFamilies([.systemMedium])
+        .supportedFamilies([.systemSmall,.systemMedium])
     }
 }
 

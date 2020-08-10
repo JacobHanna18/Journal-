@@ -12,21 +12,27 @@ struct TodayView : View{
     
     var entry: SimpleEntry
     
+    var day : Day{
+        return Day()
+    }
+    
     var body: some View{
         VStack{
             
             HStack{
                 VStack{
-                    Text("\(fullWeek[entry.day.weekday-1])")
-                        .font(.system(size: 14))
+                    Text("\(fullWeek[day.weekday-1])")
+                        .font(.system(size: 12))
                         .multilineTextAlignment(.leading)
-                    Text("\(entry.day.d)")
-                        .font(.system(size: 40))
+                    Text("\(day.d)")
+                        .font(.system(size: 33))
                         .multilineTextAlignment(.leading)
                         .foregroundColor(entry.tint)
+                        .padding(.trailing)
                         
                 }
                 .padding(.leading)
+                Spacer()
                 
                 if(entry.prevTitle == nil){
                     Spacer()
@@ -39,7 +45,7 @@ struct TodayView : View{
             }
             .padding(.vertical)
             
-            Text(entry.todayTitle ?? "You havn't added a title today.")
+            Text(entry.todayTitle ?? "You haven't added a title today.")
                 .font(.system(size: 16))
                 .multilineTextAlignment(.center)
             Spacer()
@@ -66,7 +72,7 @@ struct CalenderView: View {
         VStack(spacing: 0){
             HStack(spacing: 0){
                 ForEach(0 ..< 7, id: \.self){ i in
-                    dayCell(str: calender.miniDayTitles[i], highlighted: false, tintColor: tintColor)
+                    dayCell(str: calender.miniDayTitles[i], highlighted: false, tintColor: tintColor, day: nil)
                 }
             }
             
@@ -75,7 +81,7 @@ struct CalenderView: View {
                     ForEach(0 ..< 7, id: \.self){ x in
                         let index = i * 7 + x
                         let day = calender.days[index]
-                        dayCell(str: ("\(day.d)"), highlighted: highlights[index],tintColor: tintColor)
+                        dayCell(str: ("\(day.d)"), highlighted: highlights[index],tintColor: tintColor, day: day)
                     }
                 }
             }
@@ -91,6 +97,7 @@ struct dayCell : View{
     let str : String
     let highlighted : Bool
     let tintColor : Color
+    let day : Day?
     
     var body: some View {
         ZStack{
@@ -99,8 +106,15 @@ struct dayCell : View{
             }else{
                 Color.clear
             }
-            Text(str)
-                .font(.system(size: 10, weight: .light, design: .default))
+            if let d = day{
+                Text(str)
+                    .font(.system(size: 10, weight: d == Day() ? .bold : .light, design: .default))
+            }else{
+                Text(str)
+                    .font(.system(size: 10, weight: .light, design: .default))
+                    .foregroundColor(tintColor)
+            }
+            
         }
         .cornerRadius(5)
         .padding(.all, 1)
