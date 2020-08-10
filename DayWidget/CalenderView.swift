@@ -108,10 +108,10 @@ struct dayCell : View{
             }
             if let d = day{
                 Text(str)
-                    .font(.system(size: 10, weight: d == Day() ? .bold : .light, design: .default))
+                    .font(.system(size: 10, weight: (d == Day() ? .bold : (d.m == Day().m ? .light : .ultraLight)), design: .default))
             }else{
                 Text(str)
-                    .font(.system(size: 10, weight: .light, design: .default))
+                    .font(.system(size: 10, weight: .medium, design: .default))
                     .foregroundColor(tintColor)
             }
             

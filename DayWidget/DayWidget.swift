@@ -9,6 +9,24 @@
 import WidgetKit
 import SwiftUI
 
+var todaysEntry : SimpleEntry{
+    Titles.reload()
+    Icon.Dark.reload()
+    Icon.Index.reload()
+    WidgetStyle.reload()
+    AppTintColor.reload()
+    
+    let calender = Calender()
+    let highlights = calender.days.map { (day) -> Bool in
+        return Titles.contains(day)
+    }
+    let background : Color? = WidgetStyle.value == 0 ? nil : (Icon.Dark.value ? Color.black : Color.white)
+    let text = WidgetStyle.value == 0 ? nil : Icon.Dark.value ? Color.white : Color.black
+    let tint = WidgetStyle.value == 0 ? Color(AppTintColor.value) : Color(Icon.names[Icon.Index.value])
+    
+    return SimpleEntry(date: Date(),background: background, textColor: text, tint: tint, todayTitle: titles[Date().toDay], prevTitle: titles[Date().toDay.prev], calender: calender, highlights: highlights)
+}
+
 struct Provider: TimelineProvider {
 
     
@@ -28,25 +46,15 @@ struct Provider: TimelineProvider {
     
     public func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         
-        Titles.reload()
-        Icon.Dark.reload()
-        Icon.Index.reload()
-        WidgetStyle.reload()
-        AppTintColor.reload()
         
-        let calender = Calender()
-        let highlights = calender.days.map { (day) -> Bool in
-            return Titles.contains(day)
-        }
-        let background : Color? = WidgetStyle.value == 0 ? nil : (Icon.Dark.value ? Color.black : Color.white)
-        let text = WidgetStyle.value == 0 ? nil : Icon.Dark.value ? Color.white : Color.black
-        let tint = WidgetStyle.value == 0 ? Color(AppTintColor.value) : Color(Icon.names[Icon.Index.value])
-        
-        let entry = SimpleEntry(date: Date(),background: background, textColor: text, tint: tint, todayTitle: titles[Date().toDay], prevTitle: titles[Date().toDay.prev], calender: calender, highlights: highlights)
-        let entries = [entry]
+        let entries = [todaysEntry]
         let timeline = Timeline(entries: entries, policy: .after(Date().toDay.next.toDate.dayStart))
         
         completion(timeline)
+    }
+    
+    func placeholder(in context: Context) -> SimpleEntry {
+        return todaysEntry
     }
 }
 
@@ -61,27 +69,6 @@ struct SimpleEntry: TimelineEntry {
     public let highlights : [Bool]
 }
 
-struct PlaceholderView: View {
-    
-    
-    
-    private var entry : SimpleEntry
-    
-    init() {
-        
-        let calender = Calender()
-        let highlights = calender.days.map { (day) -> Bool in
-            return false
-        }
-        
-        entry = SimpleEntry(date: Date(), background: Color.white, textColor: Color.black, tint: Color("Green"), todayTitle: "Today's Title", prevTitle: "", calender: Calender(), highlights: highlights)
-    }
-    
-    var body: some View {
-        
-        DayWidgetEntryView(entry: entry)
-    }
-}
 
 struct DayWidgetEntryView: View {
     var entry: Provider.Entry
@@ -127,6 +114,7 @@ struct DayWidgetEntryView: View {
             
             
             HStack{
+                
                 TodayView(entry: entry)
                 
                 if(family == WidgetFamily.systemMedium){
@@ -148,8 +136,9 @@ struct DayWidgetEntryView: View {
 struct DayWidget: Widget {
     private let kind: String = "DayWidget"
     
+    
     public var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider(), placeholder: PlaceholderView()) { entry in
+        StaticConfiguration(kind: kind ,provider: Provider()) { entry in
             DayWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Today View")

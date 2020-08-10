@@ -93,7 +93,7 @@ class SettingsVC: UITableViewController{
                 
             ]
             
-            var appColorPoint : [MainPoint] = [InputPoint<UIColor>("", get: AppTintColor.value, set: { (color) in
+            var appColorPoint : [MainPoint] = [InputPoint<UIColor>("App Tint Color", get: AppTintColor.value, set: { (color) in
                 AppTintColor.value = color
                 TopSwipeView.view?.view.tintColor = color
             })]
@@ -104,8 +104,6 @@ class SettingsVC: UITableViewController{
                 }, labels: ["Match App","Match Icon"], defaultIndex: 0)]
                 
                 appColorPoint.insert(contentsOf: widgetStyle, at: 0)
-            } else {
-                // Fallback on earlier versions
             }
             
             return appColorPoint + (UIApplication.shared.supportsAlternateIcons ? appIconPoints : [])

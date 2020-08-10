@@ -39,8 +39,6 @@
 		7D1A904E24BC7F74002C6AD7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */; };
 		7D1A905124BC7F74002C6AD7 /* DayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905024BC7F74002C6AD7 /* DayWidget.swift */; };
 		7D1A905424BC7F76002C6AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D1A905324BC7F76002C6AD7 /* Assets.xcassets */; };
-		7D1A905624BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */; };
-		7D1A905724BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */; };
 		7D1A905A24BC7F76002C6AD7 /* DayWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D1A906724BC8374002C6AD7 /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED920F2AF8100846BEC /* Class Extensions.swift */; };
 		7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E898C220EF8C8000078F29 /* Back Up.swift */; };
@@ -197,7 +195,6 @@
 		7D0CE3CF22DE018D0088CFD9 /* SwipeView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwipeView.xcodeproj; path = ../SwipeView/SwipeView.xcodeproj; sourceTree = "<group>"; };
 		7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1A905024BC7F74002C6AD7 /* DayWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWidget.swift; sourceTree = "<group>"; };
-		7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DayWidget.intentdefinition; sourceTree = "<group>"; };
 		7D1A905324BC7F76002C6AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D1A905524BC7F76002C6AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppSettings.swift; sourceTree = "<group>"; };
@@ -441,7 +438,6 @@
 			children = (
 				7D1A905024BC7F74002C6AD7 /* DayWidget.swift */,
 				7DE204AC24BE287000E18E4C /* CalenderView.swift */,
-				7D1A905224BC7F74002C6AD7 /* DayWidget.intentdefinition */,
 				7D1A905324BC7F76002C6AD7 /* Assets.xcassets */,
 				7D1A905524BC7F76002C6AD7 /* Info.plist */,
 			);
@@ -772,7 +768,6 @@
 				16848C7321FA89F500C6EB17 /* SwipeViewPresentation.swift in Sources */,
 				16CA266F20F881AB005CF903 /* ListCell.swift in Sources */,
 				169A23E72100A0FD007DA34F /* Notifications.swift in Sources */,
-				7D1A905724BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */,
 				16EF5EDA20F2AF8100846BEC /* Class Extensions.swift in Sources */,
 				16E898C520EFC1A900078F29 /* SearchTitlesVC.swift in Sources */,
 				1625226720FC030C005E1860 /* duplicatesVC.swift in Sources */,
@@ -787,7 +782,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D1A905124BC7F74002C6AD7 /* DayWidget.swift in Sources */,
-				7D1A905624BC7F76002C6AD7 /* DayWidget.intentdefinition in Sources */,
 				7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */,
 				7DC411DD24BF65C2003FDF85 /* CalenderView.swift in Sources */,
 				7D1A906C24BC8477002C6AD7 /* Settings Classes.swift in Sources */,
