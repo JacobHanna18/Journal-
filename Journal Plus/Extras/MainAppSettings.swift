@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwipeView
 
 extension AppTintColor {
     
@@ -27,7 +26,6 @@ extension Icon{
             }else{
                 Index.value = index
                 Dark.value = dark
-                TopSwipeView.reload?()
             }
         }
     }

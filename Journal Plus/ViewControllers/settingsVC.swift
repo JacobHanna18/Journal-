@@ -8,8 +8,8 @@
 
 import UIKit
 import UserNotifications
-import SwipeView
 import WidgetKit
+import SwiftUI
 
 class SettingsVC: UITableViewController{
     
@@ -61,7 +61,20 @@ class SettingsVC: UITableViewController{
     }
     
     func presentTimePicker(){
-        self.presentPointView(PointsList(points: { () -> [MainPoint] in
+        let dateCell = FormCell(type: .DateInput(showTime: true, showDate: false), title: "date") { (inp) in
+            if let date = inp as? Date{
+                Notifications.Time.value = Calendar.current.dateComponents([.hour,.minute], from: date)
+                Notifications.setNotification()
+            }
+        } get: { () -> Any in
+            return Calendar.current.date(from: Notifications.Time.value) ?? Date()
+        }
+        
+        self.showForm { () -> FormProperties in
+            return FormProperties(title: "Notification Time", cells: [dateCell], button: .none)
+        }
+
+        /*self.presentPointView(PointsList(points: { () -> [MainPoint] in
             let date = Calendar.current.date(from: Notifications.Time.value)
             return[
                 DateInputPoint("date", get: date, set: { (date) in
@@ -69,7 +82,7 @@ class SettingsVC: UITableViewController{
                     Notifications.setNotification()
                 }, mode: .time, minimum: nil)
             ]
-        }, title: "Notification Time", delete: {}, .none))
+        }, title: "Notification Time", delete: {}, .none))*/
     }
     
     func presentColorPicker(){
@@ -81,7 +94,31 @@ class SettingsVC: UITableViewController{
             return UIImage(named: "\(name)-DARK@3x.png")!
         }
         
-        self.presentPointView(PointsList(points: { () -> [MainPoint] in
+        self.showForm { () -> FormProperties in
+            // app icon
+            
+            let appColorCell = FormCell(type: .ColorInput, title: "App Tint") { (inp) in
+                if let color = inp as? Color{
+                    AppTintColor.value = UIColor(color)
+                    FormVC.top?.view.tintColor = UIColor(color)
+                }
+            } get: { () -> Any in
+                return Color(AppTintColor.value)
+            }
+            
+            let widgetStyle = FormCell(type: .SingleSelection(labels: ["Match App","Match Icon"]), title: "Widget Style") { (inp) in
+                if let i = inp as? Int{
+                    WidgetStyle.value = i
+                }
+            } get: { () -> Any in
+                WidgetStyle.value
+            }
+
+
+            return FormProperties(title: "Application Color", cells: [widgetStyle,appColorCell], button: .none)
+        }
+        
+        /*self.presentPointView(PointsList(points: { () -> [MainPoint] in
             let appIconPoints = [ImagePoint("Light App Icons", background: UIColor.white, text: UIColor.black, get: Icon.get(dark: false), set: { (index) in
                     Icon.setIcon(at: index, dark: false)
                     TopSwipeView.reload?()
@@ -107,7 +144,7 @@ class SettingsVC: UITableViewController{
             }
             
             return appColorPoint + (UIApplication.shared.supportsAlternateIcons ? appIconPoints : [])
-        }, title: "Application Color", delete: {}, .none))
+        }, title: "Application Color", delete: {}, .none))*/
     }
     
     func checkNotificationAccess(){

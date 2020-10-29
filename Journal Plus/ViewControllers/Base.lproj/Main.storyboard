@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YBc-ls-x0p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YBc-ls-x0p">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -334,7 +333,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lIP-0N-p1L" customClass="ColoredSwitch" customModule="SwipeView">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lIP-0N-p1L" customClass="ColoredSwitch" customModule="Journal_Plus" customModuleProvider="target">
                                                     <rect key="frame" x="298" y="14.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="extendButtonChanged:" destination="2Ua-wo-pWv" eventType="valueChanged" id="qOp-X6-nol"/>
@@ -367,7 +366,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JRi-qd-RIy" customClass="ColoredSwitch" customModule="SwipeView">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JRi-qd-RIy" customClass="ColoredSwitch" customModule="Journal_Plus" customModuleProvider="target">
                                                     <rect key="frame" x="298" y="14.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="indicatorChanged:" destination="2Ua-wo-pWv" eventType="valueChanged" id="IEm-ID-9mp"/>
@@ -400,7 +399,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GPa-4G-Udl" customClass="ColoredSwitch" customModule="SwipeView">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GPa-4G-Udl" customClass="ColoredSwitch" customModule="Journal_Plus" customModuleProvider="target">
                                                     <rect key="frame" x="298" y="14.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="capitalizeChanged:" destination="2Ua-wo-pWv" eventType="valueChanged" id="Gw2-7v-aEn"/>
@@ -441,7 +440,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="344" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4KD-Kd-bcc" customClass="ColoredSwitch" customModule="SwipeView">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4KD-Kd-bcc" customClass="ColoredSwitch" customModule="Journal_Plus" customModuleProvider="target">
                                                     <rect key="frame" x="279" y="14.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="notificationOnChanged:" destination="2Ua-wo-pWv" eventType="valueChanged" id="HEf-3B-Un8"/>

@@ -29,10 +29,9 @@ var todaysEntry : SimpleEntry{
 
 struct Provider: TimelineProvider {
 
-    
     public typealias Entry = SimpleEntry
     
-    public func snapshot(with context: Context, completion: @escaping (SimpleEntry) -> Void) {
+    public func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
 
         let calender = Calender()
         let highlights = calender.days.map { (day) -> Bool in
@@ -44,7 +43,7 @@ struct Provider: TimelineProvider {
         completion(entry)
     }
     
-    public func timeline(with context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    public func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
         
         
         let entries = [todaysEntry]

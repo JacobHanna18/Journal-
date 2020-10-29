@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import SwipeView
 
-class SearchTitlesVC: UITableViewController, ListTableViewDelegate, Reloadable {
+class SearchTitlesVC: UITableViewController, ListTableViewDelegate, Presenting {
     
     var array_ : [(ToString, ToString)] = []
     var array: [(ToString, ToString)]{

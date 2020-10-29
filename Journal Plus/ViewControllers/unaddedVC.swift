@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import SwipeView
 
-class unaddedVC: UITableViewController, ListTableViewDelegate, Reloadable {
+class unaddedVC: UITableViewController, ListTableViewDelegate, Presenting {
     
     var array: [(ToString, ToString)]{
         return Titles.unaddedDays.map({ (date) -> (ToString,ToString) in

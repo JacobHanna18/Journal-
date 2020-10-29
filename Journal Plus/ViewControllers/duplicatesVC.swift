@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SwipeView
 
 
-class duplicatesVC: UITableViewController, ListTableViewDelegate, Reloadable {
+class duplicatesVC: UITableViewController, ListTableViewDelegate, Presenting {
     func reload() {
         tableView.reloadData()
     }

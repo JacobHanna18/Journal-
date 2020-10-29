@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import SwipeView
 
-class RemindersVC: UITableViewController, ListTableViewDelegate, Reloadable {
+class RemindersVC: UITableViewController, ListTableViewDelegate, Presenting {
     
     var array: [(ToString, ToString)]{
         return Reminders.array.map({ (r) -> (ToString,ToString) in

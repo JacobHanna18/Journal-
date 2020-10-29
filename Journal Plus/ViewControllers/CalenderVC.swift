@@ -8,11 +8,10 @@
 
 import UIKit
 import StoreKit
-import SwipeView
 
 var tabBar = UITabBarController()
 
-class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloadable {
+class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Presenting {
      @IBOutlet weak var titleTF: UITextField!
      @IBOutlet weak var prevButton: UIButton!
      @IBOutlet weak var nextButton: UIButton!
@@ -180,6 +179,28 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
      }
 
      @IBAction func selectedDateTapped(_ sender: Any) {
+          self.showForm { () -> FormProperties in
+               FormProperties(title: "Choose Day", cells: [
+                    FormCell(type: .StringTitle(), title: "Today", tap: {
+                         self.calenderView.select(day: Day())
+                         FormVC.top?.dismiss(animated: true, completion: nil)
+                    }),
+                    FormCell(type: .DateInput(showTime: false, showDate: true), title: "Select Date", set: { (inp) in
+                         if let date = inp as? Date{
+                              self.calenderView.select(day: date.toDay)
+                         }
+                         
+                    }, get: { () -> Any in
+                         self.calenderView.selectedDay.toDate
+                    }),
+                    FormCell(type: .StringTitle(), title: "Random Title", tap: {
+                         self.calenderView.select(day: Titles.array.randomElement()?.0 ?? Day())
+                         FormVC.top?.dismiss(animated: true, completion: nil)
+                    })
+               ], button: .none)
+          }
+          //form view start
+          /*
           self.presentPointView(PointsList(points: { () -> [MainPoint] in
                return [
                     DataPoint<String>("Today",tap: { () -> Bool in
@@ -194,7 +215,7 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Reloa
                          return true
                     })
                ]
-          }, title: "Choose Day", delete: {}, .none))
+          }, title: "Choose Day", delete: {}, .none))*/
      }
      
      func reload(){
