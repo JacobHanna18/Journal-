@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -283,5 +285,30 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>UTExportedTypeDeclarations</key>
+    <array>
+        <dict>
+            <key>UTTypeConformsTo</key>
+            <array>
+                <string>public.plaint-text</string>
+                <string>public.data</string>
+            </array>
+            <key>UTTypeDescription</key>
+            <string>Journal Titles For Journal! App</string>
+            <key>UTTypeIconFile</key>
+            <string>FileIcon.icns</string>
+            <key>UTTypeIdentifier</key>
+            <string>com.jacob.hanna.journaltitles</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array>
+                    <string>journaltitles</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
+    
 </dict>
 </plist>

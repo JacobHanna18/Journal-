@@ -356,7 +356,8 @@ class Titles : CodableSetting{
 }
 
 class GetSetTitles {
-    static func get() throws{
+    static var fileExtension = "journaltitles"
+    static func get() throws -> String{
         var dic : [String : String] = [:]
         Titles.fullArray.forEach { (day, title) in
             dic[day.toDate.code] = title
@@ -364,7 +365,7 @@ class GetSetTitles {
         do{
             let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.prettyPrinted)
             let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as String?
-            UIPasteboard.general.string = jsonString
+            return jsonString ?? ""
         }
         catch{
             throw error
@@ -372,13 +373,10 @@ class GetSetTitles {
         }
     }
     
-    static func set() throws{
-        if UIPasteboard.general.string == nil || UIPasteboard.general.string == ""{
-            return
-        }
-        
+    static func set(str : String) throws{
+
         var dic : [String : String] = [:]
-        if let data = UIPasteboard.general.string?.data(using: String.Encoding.utf8) {
+        if let data = str.data(using: String.Encoding.utf8) {
             do {
                 dic = try JSONSerialization.jsonObject(with: data, options: []) as? [String : String] ?? [:]
             } catch let error as NSError {

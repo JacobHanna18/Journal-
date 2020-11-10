@@ -45,6 +45,7 @@ enum CellType{
     case SingleSelection(labels : [String])
     case LongStringInput(height : CGFloat)
     //case Selection(singleSelection: Bool, labels: [String])
+    case ImageSelection(images : [[UIImage]], background : [Color], ringColor: [Color])
 }
 
 struct ButtonType{
@@ -114,6 +115,8 @@ struct FormCell: View, Identifiable{
             SingleSelection(cell: self)
         case .LongStringInput:
             LongStringInput(cell: self)
+        case .ImageSelection:
+            ImageSelection(cell: self)
         }
     }
     

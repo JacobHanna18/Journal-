@@ -11,6 +11,7 @@ import UIKit
 class ColoredSwitch: UISwitch {
 
     override public func awakeFromNib() {
+        print("here")
         self.onTintColor = self.tintColor
     }
 }
