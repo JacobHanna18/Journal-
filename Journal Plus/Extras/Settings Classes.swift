@@ -373,7 +373,7 @@ class GetSetTitles {
         }
     }
     
-    static func set(str : String) throws{
+    static func set(str : String) throws -> (override :[String : (original:String, new:String, overwrite:Bool)], add :[String : (title:String, add:Bool)]){
 
         var dic : [String : String] = [:]
         if let data = str.data(using: String.Encoding.utf8) {
@@ -383,11 +383,41 @@ class GetSetTitles {
                 throw error
             }
         }
-        for (day,title) in dic{
+        
+        var overwrite :[String : (original:String, new:String, overwrite:Bool)] = [:]
+        var new :[String : (title:String, add:Bool)] = [:]
+        
+        for (day, title) in dic{
             if let day_ = day.optionalDay{
-                titles[day_,true] = title
+                if let tit = titles[day_,true]{
+                    if tit != title{
+                        overwrite[day] = (tit,title,false)
+                    }
+                }else{
+                    new[day] = (title, true)
+                }
             }
-            
+        }
+        
+        return (overwrite, new)
+    }
+    
+    static func set (overwrite :[String : (original:String, new:String, overwrite:Bool)], new :[String : (title:String, add:Bool)]){
+        
+        for (day, data) in overwrite{
+            if let day_ = day.optionalDay{
+                if data.overwrite{
+                    titles[day_,true] = data.new
+                }
+            }
+        }
+        
+        for (day, data) in new{
+            if let day_ = day.optionalDay{
+                if data.add{
+                    titles[day_,true] = data.title
+                }
+            }
         }
     }
 }
