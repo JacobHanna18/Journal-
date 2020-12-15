@@ -43,6 +43,7 @@
 		7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E898C220EF8C8000078F29 /* Back Up.swift */; };
 		7D1A906C24BC8477002C6AD7 /* Settings Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED720F2AD0D00846BEC /* Settings Classes.swift */; };
 		7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */; };
+		7D4DF36025885C8100EB80E5 /* fullVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF35F25885C8100EB80E5 /* fullVC.swift */; };
 		7D51A4E72339507800F11FE3 /* Journal_PlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */; };
 		7D51A4F52339508000F11FE3 /* Journal_PlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4F42339508000F11FE3 /* Journal_PlusTests.swift */; };
 		7D5C2406254AE28C005A53C7 /* ColoredSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C2405254AE28C005A53C7 /* ColoredSwitch.swift */; };
@@ -204,6 +205,7 @@
 		7D1A905524BC7F76002C6AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppSettings.swift; sourceTree = "<group>"; };
 		7D1A906F24BC8990002C6AD7 /* DayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayWidgetExtension.entitlements; sourceTree = "<group>"; };
+		7D4DF35F25885C8100EB80E5 /* fullVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullVC.swift; sourceTree = "<group>"; };
 		7D51A4E42339507800F11FE3 /* Journal PlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Journal PlusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal_PlusUITests.swift; sourceTree = "<group>"; };
 		7D51A4E82339507800F11FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				16A3DAA120F88C5100EE72E2 /* unaddedVC.swift */,
 				1625226620FC030C005E1860 /* duplicatesVC.swift */,
 				16848C7421FA9B9200C6EB17 /* RemindersVC.swift */,
+				7D4DF35F25885C8100EB80E5 /* fullVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				7DE4146425674D1300FFDDCD /* StringSub1.swift in Sources */,
 				7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */,
 				16B8A58920EE7BB900AFE7D1 /* CalenderVC.swift in Sources */,
+				7D4DF36025885C8100EB80E5 /* fullVC.swift in Sources */,
 				16CA266C20F88194005CF903 /* ListTableView.swift in Sources */,
 				16A3DAA220F88C5100EE72E2 /* unaddedVC.swift in Sources */,
 				7DE4146025674D1300FFDDCD /* DoubleSub.swift in Sources */,

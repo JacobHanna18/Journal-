@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YBc-ls-x0p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YBc-ls-x0p">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -156,6 +156,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2850.4000000000001" y="33.733133433283363"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="972-jO-kLw">
+            <objects>
+                <viewController storyboardIdentifier="fillVCID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KTK-E2-95O" customClass="fullVC" customModule="Journal_Plus" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mBn-ia-adC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZs-o1-MPM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="M0i-BP-VNs">
+                                <rect key="frame" x="8" y="52" width="398" height="802"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KTK-E2-95O" id="k9z-5l-gvK"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E6n-q6-shw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="E6n-q6-shw" firstAttribute="trailing" secondItem="M0i-BP-VNs" secondAttribute="trailing" constant="8" id="1Ma-gs-LaP"/>
+                            <constraint firstItem="E6n-q6-shw" firstAttribute="bottom" secondItem="M0i-BP-VNs" secondAttribute="bottom" constant="8" id="DR3-84-zMr"/>
+                            <constraint firstItem="HZs-o1-MPM" firstAttribute="leading" secondItem="E6n-q6-shw" secondAttribute="leading" id="NLu-S3-Ttd"/>
+                            <constraint firstItem="HZs-o1-MPM" firstAttribute="top" secondItem="mBn-ia-adC" secondAttribute="top" id="SKD-OV-ZyF"/>
+                            <constraint firstAttribute="bottom" secondItem="HZs-o1-MPM" secondAttribute="bottom" id="Ydx-gK-nl3"/>
+                            <constraint firstItem="M0i-BP-VNs" firstAttribute="top" secondItem="E6n-q6-shw" secondAttribute="top" constant="8" id="as9-gr-JPc"/>
+                            <constraint firstItem="E6n-q6-shw" firstAttribute="trailing" secondItem="HZs-o1-MPM" secondAttribute="trailing" id="gnT-hV-xpf"/>
+                            <constraint firstItem="M0i-BP-VNs" firstAttribute="leading" secondItem="E6n-q6-shw" secondAttribute="leading" constant="8" id="mw7-UU-cYm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="CUt-eG-kk9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="imo-um-AkP">
+                            <connections>
+                                <action selector="dismiss:" destination="KTK-E2-95O" id="dhB-RL-tY5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backgroundV" destination="HZs-o1-MPM" id="r64-wX-T4S"/>
+                        <outlet property="textView" destination="M0i-BP-VNs" id="svf-Ag-8TB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j18-qz-AN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3860.8695652173915" y="32.8125"/>
         </scene>
         <!--Search-->
         <scene sceneID="N3P-nj-DFk">

@@ -56,6 +56,14 @@ extension UIViewController{
     }
     //expand title
     func presentExpandedView (_ day : Day){
+        
+        let storyBoard: UIStoryboard = self.storyboard!
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "fillVCID") as! fullVC
+        newViewController.day = day
+        let navC = UINavigationController(rootViewController: newViewController)
+        self.present(navC, animated: true, completion: nil)
+        return
+        
         let input = FormCell(type: .LongStringInput(height: 100), title: "") { (inp) in
             if let str = inp as? String{
                 titles[day,true] = str
