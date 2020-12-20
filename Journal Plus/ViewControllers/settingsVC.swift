@@ -163,48 +163,9 @@ class SettingsVC: UITableViewController, UIDocumentPickerDelegate, Presenting{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]){
         do{
             let file = try String(contentsOf: urls[0], encoding: String.Encoding.utf8)
-            do{
-                var (overwrite, new) = try GetSetTitles.set(str: file)
-                
-                let overwriteCell = FormCell(type: .StringTitle(systemImageName: ""), title: "These dates already have a title, select which ones to keep (this will delete the old titles and cannot be undone):")
-                let overCells = overwrite.count == 0 ? [] : ( [overwriteCell] + overwrite.map { (tit) -> FormCell in
-                    let key = tit.key
-                    let val = tit.value
-                    
-                    return FormCell(type: .BoolInput(color: nil, subTitle: [ (key.optionalDay?.toString ?? ""), "Old title: " + val.original]), title: val.new) { (inp) in
-                        if let b = inp as? Bool{
-                            overwrite[key]?.overwrite = b
-                        }
-                    } get: { () -> Any in
-                        return overwrite[key]?.overwrite ?? true
-                    }
-                })
-                
-                
-                let newCell = FormCell(type: .StringTitle(systemImageName: ""), title: "These titles are new, select which to ignore:")
-                let newCells = new.count == 0 ? [] : ([newCell] + new.map { (tit) -> FormCell in
-                    let key = tit.key
-                    let val = tit.value
-                    
-                    return FormCell(type: .BoolInput(color: nil, subTitle: [ (key.optionalDay?.toString ?? "")]), title: val.title) { (inp) in
-                        if let b = inp as? Bool{
-                            new[key]?.add = b
-                        }
-                    } get: { () -> Any in
-                        return new[key]?.add ?? true
-                    }
-                })
-                
-                FormVC.top?.showForm({ () -> FormProperties in
-                    let cells = new.count + overwrite.count == 0 ? [FormCell(type: .StringTitle(systemImageName: ""), title: "This file doesn't have any new titles to add.")] : (overCells + newCells)
-                    return FormProperties(title: "File Titles", done: {
-                        GetSetTitles.set(overwrite: overwrite, new: new)
-                    }, cells: cells, button: new.count + overwrite.count == 0 ? .none : .init(label: "Cancel", showAlert: false))
-                })
-            }
-            catch{
-                
-            }
+            FormVC.top?.showForm({ () -> FormProperties in
+                (GetSetTitles.formViewFromFileString(str: file) ?? FormProperties(title: "Error"))
+            })
         }catch{
             print("")
         }

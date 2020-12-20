@@ -64,7 +64,7 @@ extension UIViewController{
         self.present(navC, animated: true, completion: nil)
         return
         
-        let input = FormCell(type: .LongStringInput(height: 100), title: "") { (inp) in
+        /*let input = FormCell(type: .LongStringInput(height: 100), title: "") { (inp) in
             if let str = inp as? String{
                 titles[day,true] = str
             }
@@ -77,7 +77,7 @@ extension UIViewController{
                 titles[day, true] = nil
             }, cells: [input], button: .init(label: "Clear", showAlert: true))
         }
-        /*self.presentPointView(PointsList(points: { () -> [MainPoint] in
+        self.presentPointView(PointsList(points: { () -> [MainPoint] in
             return [
                 LongInput<String>(day.toString, height: 500, background: AppTintColor.value.withAlphaComponent(0.1), get: titles[day,true], set: { (str) in
                     titles[day,true] = str

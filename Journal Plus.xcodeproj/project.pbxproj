@@ -43,6 +43,35 @@
 		7D1A906924BC83C4002C6AD7 /* Back Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E898C220EF8C8000078F29 /* Back Up.swift */; };
 		7D1A906C24BC8477002C6AD7 /* Settings Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED720F2AD0D00846BEC /* Settings Classes.swift */; };
 		7D1A906E24BC84C0002C6AD7 /* MainAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */; };
+		7D204D3A25900DE60023C423 /* Share File Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D204D3925900DE60023C423 /* Share File Functions.swift */; };
+		7D204D4925900F240023C423 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D204D4825900F240023C423 /* ShareViewController.swift */; };
+		7D204D4C25900F240023C423 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D204D4A25900F240023C423 /* MainInterface.storyboard */; };
+		7D204D5025900F240023C423 /* JournalShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D204D4625900F240023C423 /* JournalShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7D204D582590104F0023C423 /* DoubleSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144C25674D1300FFDDCD /* DoubleSub.swift */; };
+		7D204D592590104F0023C423 /* FormProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145A25674D1300FFDDCD /* FormProperties.swift */; };
+		7D204D5A2590104F0023C423 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145B25674D1300FFDDCD /* extensions.swift */; };
+		7D204D5B2590104F0023C423 /* DoubleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145425674D1300FFDDCD /* DoubleInput.swift */; };
+		7D204D5C2590104F0023C423 /* StringSub1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145025674D1300FFDDCD /* StringSub1.swift */; };
+		7D204D5D2590104F0023C423 /* StringTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145125674D1300FFDDCD /* StringTitle.swift */; };
+		7D204D5E2590104F0023C423 /* LongStringInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145625674D1300FFDDCD /* LongStringInput.swift */; };
+		7D204D5F2590104F0023C423 /* StringSub2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144925674D1300FFDDCD /* StringSub2.swift */; };
+		7D204D602590104F0023C423 /* StringInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144F25674D1300FFDDCD /* StringInput.swift */; };
+		7D204D612590104F0023C423 /* IntSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145325674D1300FFDDCD /* IntSub.swift */; };
+		7D204D622590104F0023C423 /* CellTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145725674D1300FFDDCD /* CellTitleView.swift */; };
+		7D204D632590104F0023C423 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145C25674D1300FFDDCD /* FormView.swift */; };
+		7D204D642590104F0023C423 /* SingleSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145225674D1300FFDDCD /* SingleSelection.swift */; };
+		7D204D652590104F0023C423 /* BoolInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144E25674D1300FFDDCD /* BoolInput.swift */; };
+		7D204D662590104F0023C423 /* DateInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144B25674D1300FFDDCD /* DateInput.swift */; };
+		7D204D672590104F0023C423 /* FormVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DE4145825674D1300FFDDCD /* FormVC.xib */; };
+		7D204D682590104F0023C423 /* ColorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145525674D1300FFDDCD /* ColorInput.swift */; };
+		7D204D692590104F0023C423 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4145925674D1300FFDDCD /* FormVC.swift */; };
+		7D204D6A2590104F0023C423 /* ImageSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144A25674D1300FFDDCD /* ImageSelection.swift */; };
+		7D204D6B2590104F0023C423 /* IntInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE4144D25674D1300FFDDCD /* IntInput.swift */; };
+		7D204D70259010C40023C423 /* Share File Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D204D3925900DE60023C423 /* Share File Functions.swift */; };
+		7D204D75259011EF0023C423 /* Settings Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED720F2AD0D00846BEC /* Settings Classes.swift */; };
+		7D204D7A259011FF0023C423 /* Back Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E898C220EF8C8000078F29 /* Back Up.swift */; };
+		7D204D7F259012260023C423 /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED920F2AF8100846BEC /* Class Extensions.swift */; };
+		7D204D8D259013A90023C423 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1625226820FC07D1005E1860 /* colors.xcassets */; };
 		7D4DF36025885C8100EB80E5 /* fullVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF35F25885C8100EB80E5 /* fullVC.swift */; };
 		7D51A4E72339507800F11FE3 /* Journal_PlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */; };
 		7D51A4F52339508000F11FE3 /* Journal_PlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4F42339508000F11FE3 /* Journal_PlusTests.swift */; };
@@ -124,6 +153,13 @@
 			remoteGlobalIDString = 7D1A904B24BC7F74002C6AD7;
 			remoteInfo = DayWidgetExtension;
 		};
+		7D204D4E25900F240023C423 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16B8A57B20EE7BB900AFE7D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D204D4525900F240023C423;
+			remoteInfo = JournalShareExtension;
+		};
 		7D51A4E92339507800F11FE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 16B8A57B20EE7BB900AFE7D1 /* Project object */;
@@ -157,6 +193,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				7D204D5025900F240023C423 /* JournalShareExtension.appex in Embed App Extensions */,
 				7D1A905A24BC7F76002C6AD7 /* DayWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -205,6 +242,12 @@
 		7D1A905524BC7F76002C6AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D1A906D24BC84C0002C6AD7 /* MainAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppSettings.swift; sourceTree = "<group>"; };
 		7D1A906F24BC8990002C6AD7 /* DayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayWidgetExtension.entitlements; sourceTree = "<group>"; };
+		7D204D3925900DE60023C423 /* Share File Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Share File Functions.swift"; sourceTree = "<group>"; };
+		7D204D4625900F240023C423 /* JournalShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JournalShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D204D4825900F240023C423 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		7D204D4B25900F240023C423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7D204D4D25900F240023C423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D204D92259014D60023C423 /* JournalShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JournalShareExtension.entitlements; sourceTree = "<group>"; };
 		7D4DF35F25885C8100EB80E5 /* fullVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullVC.swift; sourceTree = "<group>"; };
 		7D51A4E42339507800F11FE3 /* Journal PlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Journal PlusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal_PlusUITests.swift; sourceTree = "<group>"; };
@@ -301,6 +344,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D204D4325900F240023C423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D51A4E12339507800F11FE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +389,7 @@
 				7D51A4E52339507800F11FE3 /* Journal PlusUITests */,
 				7D51A4F32339508000F11FE3 /* Journal PlusTests */,
 				7D1A904F24BC7F74002C6AD7 /* DayWidget */,
+				7D204D4725900F240023C423 /* JournalShareExtension */,
 				16B8A58420EE7BB900AFE7D1 /* Products */,
 				1692AB1922ABE11A00FF5918 /* Frameworks */,
 			);
@@ -351,6 +402,7 @@
 				7D51A4E42339507800F11FE3 /* Journal PlusUITests.xctest */,
 				7D51A4F22339508000F11FE3 /* Journal PlusTests.xctest */,
 				7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */,
+				7D204D4625900F240023C423 /* JournalShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -450,6 +502,7 @@
 				16C055112193782600D43763 /* LabeledVC.swift */,
 				16848C7221FA89F500C6EB17 /* SwipeViewPresentation.swift */,
 				7D5C2405254AE28C005A53C7 /* ColoredSwitch.swift */,
+				7D204D3925900DE60023C423 /* Share File Functions.swift */,
 			);
 			path = Extras;
 			sourceTree = "<group>";
@@ -463,6 +516,17 @@
 				7D1A905524BC7F76002C6AD7 /* Info.plist */,
 			);
 			path = DayWidget;
+			sourceTree = "<group>";
+		};
+		7D204D4725900F240023C423 /* JournalShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7D204D92259014D60023C423 /* JournalShareExtension.entitlements */,
+				7D204D4825900F240023C423 /* ShareViewController.swift */,
+				7D204D4A25900F240023C423 /* MainInterface.storyboard */,
+				7D204D4D25900F240023C423 /* Info.plist */,
+			);
+			path = JournalShareExtension;
 			sourceTree = "<group>";
 		};
 		7D51A4E52339507800F11FE3 /* Journal PlusUITests */ = {
@@ -586,6 +650,7 @@
 			);
 			dependencies = (
 				7D1A905924BC7F76002C6AD7 /* PBXTargetDependency */,
+				7D204D4F25900F240023C423 /* PBXTargetDependency */,
 			);
 			name = "Journal Plus";
 			productName = "Journal Plus";
@@ -607,6 +672,23 @@
 			name = DayWidgetExtension;
 			productName = DayWidgetExtension;
 			productReference = 7D1A904C24BC7F74002C6AD7 /* DayWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7D204D4525900F240023C423 /* JournalShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D204D5125900F250023C423 /* Build configuration list for PBXNativeTarget "JournalShareExtension" */;
+			buildPhases = (
+				7D204D4225900F240023C423 /* Sources */,
+				7D204D4325900F240023C423 /* Frameworks */,
+				7D204D4425900F240023C423 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JournalShareExtension;
+			productName = JournalShareExtension;
+			productReference = 7D204D4625900F240023C423 /* JournalShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		7D51A4E32339507800F11FE3 /* Journal PlusUITests */ = {
@@ -651,7 +733,7 @@
 		16B8A57B20EE7BB900AFE7D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1200;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Jacob Hanna";
 				TargetAttributes = {
@@ -666,6 +748,9 @@
 					};
 					7D1A904B24BC7F74002C6AD7 = {
 						CreatedOnToolsVersion = 12.0;
+					};
+					7D204D4525900F240023C423 = {
+						CreatedOnToolsVersion = 12.2;
 					};
 					7D51A4E32339507800F11FE3 = {
 						CreatedOnToolsVersion = 11.0;
@@ -694,6 +779,7 @@
 				7D51A4E32339507800F11FE3 /* Journal PlusUITests */,
 				7D51A4F12339508000F11FE3 /* Journal PlusTests */,
 				7D1A904B24BC7F74002C6AD7 /* DayWidgetExtension */,
+				7D204D4525900F240023C423 /* JournalShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -768,6 +854,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D204D4425900F240023C423 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D204D8D259013A90023C423 /* colors.xcassets in Resources */,
+				7D204D672590104F0023C423 /* FormVC.xib in Resources */,
+				7D204D4C25900F240023C423 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D51A4E22339507800F11FE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,6 +886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C055122193782600D43763 /* LabeledVC.swift in Sources */,
+				7D204D3A25900DE60023C423 /* Share File Functions.swift in Sources */,
 				7DE4146625674D1300FFDDCD /* SingleSelection.swift in Sources */,
 				16EF5ED820F2AD0D00846BEC /* Settings Classes.swift in Sources */,
 				7DE4146B25674D1300FFDDCD /* CellTitleView.swift in Sources */,
@@ -846,6 +943,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7D204D4225900F240023C423 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D204D632590104F0023C423 /* FormView.swift in Sources */,
+				7D204D70259010C40023C423 /* Share File Functions.swift in Sources */,
+				7D204D5B2590104F0023C423 /* DoubleInput.swift in Sources */,
+				7D204D4925900F240023C423 /* ShareViewController.swift in Sources */,
+				7D204D652590104F0023C423 /* BoolInput.swift in Sources */,
+				7D204D582590104F0023C423 /* DoubleSub.swift in Sources */,
+				7D204D622590104F0023C423 /* CellTitleView.swift in Sources */,
+				7D204D5D2590104F0023C423 /* StringTitle.swift in Sources */,
+				7D204D592590104F0023C423 /* FormProperties.swift in Sources */,
+				7D204D692590104F0023C423 /* FormVC.swift in Sources */,
+				7D204D662590104F0023C423 /* DateInput.swift in Sources */,
+				7D204D5A2590104F0023C423 /* extensions.swift in Sources */,
+				7D204D5C2590104F0023C423 /* StringSub1.swift in Sources */,
+				7D204D5E2590104F0023C423 /* LongStringInput.swift in Sources */,
+				7D204D642590104F0023C423 /* SingleSelection.swift in Sources */,
+				7D204D5F2590104F0023C423 /* StringSub2.swift in Sources */,
+				7D204D602590104F0023C423 /* StringInput.swift in Sources */,
+				7D204D6B2590104F0023C423 /* IntInput.swift in Sources */,
+				7D204D682590104F0023C423 /* ColorInput.swift in Sources */,
+				7D204D612590104F0023C423 /* IntSub.swift in Sources */,
+				7D204D75259011EF0023C423 /* Settings Classes.swift in Sources */,
+				7D204D6A2590104F0023C423 /* ImageSelection.swift in Sources */,
+				7D204D7A259011FF0023C423 /* Back Up.swift in Sources */,
+				7D204D7F259012260023C423 /* Class Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D51A4E02339507800F11FE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -870,6 +998,11 @@
 			platformFilter = ios;
 			target = 7D1A904B24BC7F74002C6AD7 /* DayWidgetExtension */;
 			targetProxy = 7D1A905824BC7F76002C6AD7 /* PBXContainerItemProxy */;
+		};
+		7D204D4F25900F240023C423 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D204D4525900F240023C423 /* JournalShareExtension */;
+			targetProxy = 7D204D4E25900F240023C423 /* PBXContainerItemProxy */;
 		};
 		7D51A4EA2339507800F11FE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -898,6 +1031,14 @@
 				16B8A59020EE7BBF00AFE7D1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7D204D4A25900F240023C423 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D204D4B25900F240023C423 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1160,6 +1301,52 @@
 			};
 			name = Release;
 		};
+		7D204D5225900F250023C423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JournalShareExtension/JournalShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26VASZ3327;
+				INFOPLIST_FILE = JournalShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.JournalShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D204D5325900F250023C423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JournalShareExtension/JournalShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26VASZ3327;
+				INFOPLIST_FILE = JournalShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.JournalShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7D51A4EC2339507800F11FE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1272,6 +1459,15 @@
 			buildConfigurations = (
 				7D1A905C24BC7F76002C6AD7 /* Debug */,
 				7D1A905D24BC7F76002C6AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D204D5125900F250023C423 /* Build configuration list for PBXNativeTarget "JournalShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D204D5225900F250023C423 /* Debug */,
+				7D204D5325900F250023C423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
