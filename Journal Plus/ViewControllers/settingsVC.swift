@@ -107,11 +107,11 @@ class SettingsVC: UITableViewController, UIDocumentPickerDelegate, Presenting{
                 WidgetStyle.value
             }
             
-            let lightArr = Icon.names.map { (name) -> Image in
-                return Image(uiImage: UIImage(named: "\(name)@3x.png")!)
+            let lightArr = Icon.names.map { (name) -> AnyView in
+                return AnyView(Image(uiImage: UIImage(named: "\(name)@3x.png")!).resizable().aspectRatio(contentMode: .fill).cornerRadius(16))
             }
-            let darkArr = Icon.names.map { (name) -> Image in
-                return Image(uiImage: UIImage(named: "\(name)-DARK@3x.png")!)
+            let darkArr = Icon.names.map { (name) -> AnyView in
+                return AnyView(Image(uiImage: UIImage(named: "\(name)-DARK@3x.png")!).resizable().aspectRatio(contentMode: .fill).cornerRadius(16))
             }
             
             let icons = FormCell(type: .MatrixSelection(columns: 5, values: lightArr + darkArr), title: "App Icon") { (inp) in

@@ -524,7 +524,7 @@ extension Lists{
         "asterisk.circle.fill"
     ]
     
-    static let images = imageNames.map { (str) -> Image in
-        return Image(systemName: str).renderingMode(.template)
+    static let images = imageNames.map { (str) -> AnyView in
+        return AnyView(Image(systemName: str).renderingMode(.template).resizable().aspectRatio(contentMode: .fill))
     }
 }
