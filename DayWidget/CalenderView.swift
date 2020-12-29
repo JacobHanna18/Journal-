@@ -72,7 +72,7 @@ struct CalenderView: View {
         VStack(spacing: 0){
             HStack(spacing: 0){
                 ForEach(0 ..< 7, id: \.self){ i in
-                    dayCell(str: calender.miniDayTitles[i], highlighted: false, tintColor: tintColor, day: nil)
+                    dayCell(str: Calender.miniDayTitles[i], highlighted: false, tintColor: tintColor, day: nil)
                 }
             }
             

@@ -6,15 +6,17 @@
 //  Copyright © 2020 Jacob Hanna. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SwiftUI
 
-class Calender{
+class Calender: ObservableObject{
     
-    let dayTitles = ["Sun", "Mon", "Tue","Wed","Thu","Fri","Sat"]
-    let miniDayTitles = ["S", "M", "T","W","T","F","S"]
+    static let dayTitles = ["Sun", "Mon", "Tue","Wed","Thu","Fri","Sat"]
+    static let miniDayTitles = ["S", "M", "T","W","T","F","S"]
+    static let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
-    var month : Int = Day().m
-    var year : Int = Day().y
+    @Published var month : Int = Day().m
+    @Published var year : Int = Day().y
     
     var start = 0
     var end = 0
@@ -24,6 +26,17 @@ class Calender{
     let dayRows : Int = 6
     var dayCount : Int {
         return dayRows * 7
+    }
+    
+    subscript(row: Int, column: Int) -> Day{
+        get{
+            return days[row * 7 + column]
+        }
+    }
+    
+    public convenience init(month: Int, year: Int) {
+        self.init()
+        set(month: month, year: year)
     }
     
     init() {
@@ -47,6 +60,26 @@ class Calender{
             year-=1
         }
         getDates()
+    }
+    
+    func next() -> (Int,Int) {
+        var m = month+1
+        var y = year
+        if m == 13{
+            m = 1
+            y+=1
+        }
+        return (m,y)
+    }
+    
+    func prev() -> (Int,Int){
+        var m = month-1
+        var y = year
+        if m == 0{
+            m = 12
+            y-=1
+        }
+        return (m,y)
     }
     
     func set (month : Int? = nil, year: Int? = nil){

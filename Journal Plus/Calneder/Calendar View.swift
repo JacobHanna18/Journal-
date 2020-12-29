@@ -164,7 +164,7 @@ class CalendarView: UICollectionView, UICollectionViewDataSource, UICollectionVi
             cell.indicatorView.backgroundColor = UIColor.clear
             cell.backgroundColor = background
             cell.label.textColor = text
-            cell.setLabel(calender.dayTitles[indexPath.row])
+            cell.setLabel(Calender.dayTitles[indexPath.row])
             cell.alpha = 1
         }
         

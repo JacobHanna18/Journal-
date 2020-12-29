@@ -27,6 +27,8 @@ protocol Setting{
     static func updated(_ newValue : T)
     
     static func reload()
+    
+    static func set()
 }
 
 
@@ -34,7 +36,6 @@ extension Setting{
     static func updated(_ newValue : T) {}
     static func restoreValue(){
         BackUp(key).restoreValue()
-        last = defaultValue;
     }
     static func reload(){
         if let c = backup{
@@ -57,6 +58,11 @@ extension Setting{
             backup = newValue
             updated(newValue)
         }
+    }
+    
+    static func set(){
+        let arr = self.value
+        self.value = arr
     }
 }
 

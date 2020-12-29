@@ -307,6 +307,26 @@
 				</array>
 			</dict>
 		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.plaint-text</string>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Journal Done List For Journal! App</string>
+			<key>UTTypeIconFile</key>
+			<string>FileIcon.icns</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.jacob.hanna.journaldonelist</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>JournalDoneList</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

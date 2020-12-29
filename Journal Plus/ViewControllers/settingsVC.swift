@@ -107,23 +107,27 @@ class SettingsVC: UITableViewController, UIDocumentPickerDelegate, Presenting{
                 WidgetStyle.value
             }
             
-            let lightArr = Icon.names.map { (name) -> UIImage in
-                return UIImage(named: "\(name)@3x.png")!
+            let lightArr = Icon.names.map { (name) -> Image in
+                return Image(uiImage: UIImage(named: "\(name)@3x.png")!)
             }
-            let darkArr = Icon.names.map { (name) -> UIImage in
-                return UIImage(named: "\(name)-DARK@3x.png")!
+            let darkArr = Icon.names.map { (name) -> Image in
+                return Image(uiImage: UIImage(named: "\(name)-DARK@3x.png")!)
             }
             
-            let lightIcons = FormCell(type: .ImageSelection(images: [lightArr,darkArr], background: [Color.white,Color.black], ringColor: [Color.black,Color.white]), title: "App Icon", divider: false) { (i) in
-                if let index = i as? (Int,Int){
-                    Icon.setIcon(at: index.0, dark: index.1 == 1)
+            let icons = FormCell(type: .MatrixSelection(columns: 5, values: lightArr + darkArr), title: "App Icon") { (inp) in
+                if let i = inp as? Int{
+                    if i < lightArr.count{
+                        Icon.setIcon(at: i, dark: false)
+                    }else{
+                        Icon.setIcon(at: i - lightArr.count, dark: true)
+                    }
                 }
             } get: { () -> Any in
-                return (Icon.Index.value,Icon.Dark.value ? 1 : 0)
+                return 3
             }
 
 
-            return FormProperties(title: "Application Color", cells: [widgetStyle,appColorCell,lightIcons], button: .none)
+            return FormProperties(title: "Application Color", cells: [widgetStyle,appColorCell,icons], button: .none)
         }
         
     }
@@ -195,13 +199,14 @@ class SettingsVC: UITableViewController, UIDocumentPickerDelegate, Presenting{
         switch tableView.cellForRow(at: indexPath)?.reuseIdentifier{
         case "SendRecieve" :
             showForm { () -> FormProperties in
+                let note = FormCell(type: .StringTitle(), title: "This only saves the journal entries and not the done lists, if you want to save a done list, go to the done tab, edit the list you want to save then tap export.")
                 let share = FormCell(type: .StringTitle(systemImageName: "square.and.arrow.up"), title: "Export To File", tap:  {
                     self.shareFile()
                 })
                 let save = FormCell(type: .StringTitle(systemImageName: "square.and.arrow.down"), title: "Import From File", tap:  {
                     self.setFromFile()
                 })
-                return FormProperties(title: "Import And Export", cells: [share,save], button: .none)
+                return FormProperties(title: "Import And Export", cells: [note, share,save], button: .none)
             }
             
         case "notificationCellID":

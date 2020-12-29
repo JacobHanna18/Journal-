@@ -39,6 +39,8 @@ class CalenderVC: UIViewController, CalenderDelegate, UITextFieldDelegate, Prese
      override func viewDidLoad() {
           super.viewDidLoad()
           
+          self.tabBarController?.tabBar.items?[1].selectedImage = UIImage(systemName: Lists.TabBarSelectedImageName)?.withRenderingMode(.alwaysTemplate)
+          self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: Lists.TabBarImageName)?.withRenderingMode(.alwaysTemplate)
           tabBar = self.tabBarController!
           calenderView.calenderDelegate = self
           calenderView.select(day: Day())
