@@ -124,6 +124,15 @@ class ExtendButton: KeyedSetting{
     static let defaultValue = false
 }
 
+class Authentication {
+    class Enable: KeyedSetting{
+        static var last: Bool? = nil
+        static let key = "AuthenticateOwnerKey"
+        static let defaultValue = false
+    }
+}
+
+
 class Capitalize: KeyedSetting{
     static var last: Bool? = nil
     static let key = "CapitalizeTitlesKey"

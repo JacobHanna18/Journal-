@@ -11,6 +11,7 @@ import UserNotifications
 import WidgetKit
 import SwiftUI
 import UniformTypeIdentifiers
+import LocalAuthentication
 
 class SettingsVC: UITableViewController, UIDocumentPickerDelegate, Presenting{
     func reload() {
@@ -215,10 +216,57 @@ class SettingsVC: UITableViewController, UIDocumentPickerDelegate, Presenting{
             }
         case "ColorSelectionCellID":
             presentColorPicker()
+        case "AuthenticateCellID":
+            presentAuthenticate()
+            
         default:
             break
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func presentAuthenticate(){
+        
+        var bio = true
+        var type = ""
+        let context = LAContext()
+        context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
+        switch context.biometryType {
+        case .none:
+            bio = false
+        case .touchID:
+            type = "Touch ID"
+        case .faceID:
+            type = "Face ID"
+        @unknown default:
+            bio = false
+        }
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+            let info = FormCell(type: .StringTitle(), title: "When this is on, everytime you open the app you will be asked to enter you passcode\( bio ? " or use \(type)" : "") to enter.\n\nWhen you turn off your device passcode this will automatically turn off.")
+            
+            let onOff = FormCell(type: .SingleSelection(labels: ["Turn On","Turn Off"])) { (inp) in
+                if let i  = inp as? Int{
+                    if i == 0{
+                        Authentication.Enable.value = true
+                    }else if i == 1{
+                        Authentication.Enable.value = false
+                    }
+                }
+            } get: { () -> Any in
+                return Authentication.Enable.value ? 0 : 1
+            }
+
+            self.showForm { () -> FormProperties in
+                return FormProperties(title: "Authenticate", cells: [info, onOff], button: .none)
+            }
+
+        }else{
+            let info = FormCell(type: .StringTitle(), title: "You don't have a passcode \(bio ? "or \(type) " : "")on your device.\nTo access this feature you must turn \(bio ? "atleast one of them on." : "it on.")")
+            self.showForm { () -> FormProperties in
+                return FormProperties(title: "Authenticate", cells: [info], button: .none)
+            }
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {

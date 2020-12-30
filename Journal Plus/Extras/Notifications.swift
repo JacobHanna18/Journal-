@@ -240,7 +240,11 @@ func presentReview(){
         return
     }
     
-    SKStoreReviewController.requestReview()
+    print("testing 1111")
+    if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+        print("testing")
+        SKStoreReviewController.requestReview(in: scene)
+    }
     
     ActionCount.value = 0
     LastVersion.value = currentVersion ?? ""

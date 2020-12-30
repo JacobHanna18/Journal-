@@ -50,6 +50,8 @@
 		7D204D7A259011FF0023C423 /* Back Up.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E898C220EF8C8000078F29 /* Back Up.swift */; };
 		7D204D7F259012260023C423 /* Class Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EF5ED920F2AF8100846BEC /* Class Extensions.swift */; };
 		7D204D8D259013A90023C423 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1625226820FC07D1005E1860 /* colors.xcassets */; };
+		7D32CB4C259CDE3A002CCE7F /* AuthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D32CB4B259CDE3A002CCE7F /* AuthenticationVC.swift */; };
+		7D45F7E8259D034200CB7953 /* NavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D45F7E7259D034200CB7953 /* NavController.swift */; };
 		7D4DF36025885C8100EB80E5 /* fullVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DF35F25885C8100EB80E5 /* fullVC.swift */; };
 		7D51A4E72339507800F11FE3 /* Journal_PlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */; };
 		7D51A4F52339508000F11FE3 /* Journal_PlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D51A4F42339508000F11FE3 /* Journal_PlusTests.swift */; };
@@ -245,6 +247,8 @@
 		7D204D4B25900F240023C423 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7D204D4D25900F240023C423 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D204D92259014D60023C423 /* JournalShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JournalShareExtension.entitlements; sourceTree = "<group>"; };
+		7D32CB4B259CDE3A002CCE7F /* AuthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVC.swift; sourceTree = "<group>"; };
+		7D45F7E7259D034200CB7953 /* NavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavController.swift; sourceTree = "<group>"; };
 		7D4DF35F25885C8100EB80E5 /* fullVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fullVC.swift; sourceTree = "<group>"; };
 		7D51A4E42339507800F11FE3 /* Journal PlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Journal PlusUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D51A4E62339507800F11FE3 /* Journal_PlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal_PlusUITests.swift; sourceTree = "<group>"; };
@@ -485,6 +489,8 @@
 				1625226620FC030C005E1860 /* duplicatesVC.swift */,
 				16848C7421FA9B9200C6EB17 /* RemindersVC.swift */,
 				7D4DF35F25885C8100EB80E5 /* fullVC.swift */,
+				7D32CB4B259CDE3A002CCE7F /* AuthenticationVC.swift */,
+				7D45F7E7259D034200CB7953 /* NavController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -893,8 +899,10 @@
 			files = (
 				16C055122193782600D43763 /* LabeledVC.swift in Sources */,
 				7D204D3A25900DE60023C423 /* Share File Functions.swift in Sources */,
+				7D32CB4C259CDE3A002CCE7F /* AuthenticationVC.swift in Sources */,
 				16EF5ED820F2AD0D00846BEC /* Settings Classes.swift in Sources */,
 				7D5C3F6925939ADF00872A64 /* extensions.swift in Sources */,
+				7D45F7E8259D034200CB7953 /* NavController.swift in Sources */,
 				7D5C3F3525939A9400872A64 /* FinishCalenderView.swift in Sources */,
 				7D14D07F259BF3AF0078CD55 /* CalendarView.swift in Sources */,
 				7D5C3F6525939ADF00872A64 /* CellTitleView.swift in Sources */,
@@ -1200,7 +1208,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0;
+				MARKETING_VERSION = 6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1241,7 +1249,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0;
+				MARKETING_VERSION = 6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1268,7 +1276,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 6.0;
+				MARKETING_VERSION = 6.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.DayWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1296,7 +1304,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 6.0;
+				MARKETING_VERSION = 6.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.DayWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1322,7 +1330,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 6.0;
+				MARKETING_VERSION = 6.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.JournalShareExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1347,7 +1355,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 6.0;
+				MARKETING_VERSION = 6.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacobhanna.Journal-.JournalShareExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
