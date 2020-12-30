@@ -78,8 +78,8 @@ class Lists: CodableSetting{
             let j = i
             return FormCell(type: .StringTitle(systemImageName: i == Lists.selectedIndex ? "chevron.right.square.fill" : "chevron.right.square", extraButton: (imageName: "pencil.circle", tap: {
                 FormVC.top?.showForm({Lists.props(of: j)})
-                FormVC.top?.view.tintColor = l.color
-            }), color: l.color), title: l.name, tap: {
+                FormVC.top?.view.tintColor = l.listColor
+            }), color: l.listColor), title: l.name, tap: {
                 Lists.selectedIndex = j
                 FormVC.top?.dismiss(animated: true, completion: nil)
             })
@@ -96,6 +96,18 @@ class Lists: CodableSetting{
             }
         } get: { () -> Any in
             return Lists.value[index].name
+        }
+        
+        let matchApp = FormCell(type: .BoolInput(), title: "Match Color To App") { (inp) in
+            if let b = inp as? Bool{
+                Lists.value[index].colorMatchApp = b
+                FormVC.top?.view.tintColor =  Lists.value[index].listColor
+                
+                
+                Lists.set()
+            }
+        } get: { () -> Any in
+            return Lists.value[index].colorMatchApp
         }
         
         let color = FormCell(type: .ColorInput, title: "Color") { (inp) in
@@ -161,7 +173,7 @@ class Lists: CodableSetting{
                     Lists.selectedIndex -= 1
                 }
             }
-        }, cells: [name,color,doneImageName,undoneImageName, export], button: .delete)
+        }, cells: [name,matchApp, color,doneImageName,undoneImageName, export], button: .delete)
 
 
     }
@@ -189,8 +201,13 @@ class doneList : Codable{
     var name : String
     var days : [Int:[Int:[Int:Bool]]]
     var color : UIColor
+    var colorMatchApp : Bool
     var doneImageName : String
     var undoneImageName : String
+    
+    var listColor : UIColor{
+        return colorMatchApp ? AppTintColor.value : color
+    }
     
     static let fileExtension = "JournalDoneList"
     
@@ -200,6 +217,7 @@ class doneList : Codable{
         color = AppTintColor.value
         doneImageName = "checkmark.circle"
         undoneImageName = "circle"
+        colorMatchApp = true
     }
     
     subscript(day : Day) -> Bool{
@@ -288,6 +306,7 @@ class doneList : Codable{
         case days
         case doneImageName
         case undoneImageName
+        case colorMatchApp
         
         case r,g,b,a
     }
@@ -298,6 +317,7 @@ class doneList : Codable{
         try container.encode(days, forKey: .days)
         try container.encode(doneImageName, forKey: .doneImageName)
         try container.encode(undoneImageName, forKey: .undoneImageName)
+        try container.encode(colorMatchApp, forKey: .colorMatchApp)
         let (r,g,b,a) = color.rgba
         try container.encode(r, forKey: .r)
         try container.encode(g, forKey: .g)
@@ -312,7 +332,14 @@ class doneList : Codable{
         days = try values.decode([Int:[Int:[Int:Bool]]].self, forKey: .days)
         doneImageName = try values.decode(String.self, forKey: .doneImageName)
         undoneImageName = try values.decode(String.self, forKey: .undoneImageName)
-        print(doneImageName, undoneImageName)
+        
+        do{
+            colorMatchApp = try values.decode(Bool.self, forKey: .colorMatchApp)
+        }catch{
+            colorMatchApp = false
+        }
+        
+        
         let r = try values.decode(CGFloat.self, forKey: .r)
         let g = try values.decode(CGFloat.self, forKey: .g)
         let b = try values.decode(CGFloat.self, forKey: .b)

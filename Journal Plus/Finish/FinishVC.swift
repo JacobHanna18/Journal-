@@ -14,16 +14,20 @@ class FinishVC: UIViewController, Presenting, ObservableObject, UIDocumentPicker
     
     var calender = Calender(month: Date().month, year: Date().year)
     
+    override func viewWillAppear(_ animated: Bool){
+        reload()
+        
+    }
     
     func reload() {
         update()
         content.rootView.doneImage = Lists.selectedList.doneImageName
         content.rootView.undoneImage = Lists.selectedList.undoneImageName
-        content.rootView.color = Color(Lists.selectedList.color)
+        content.rootView.color = Color(Lists.selectedList.listColor)
     }
     
     func update(){
-        self.navigationController?.view.tintColor = Lists.selectedList.color
+        self.navigationController?.view.tintColor = Lists.selectedList.listColor
         self.navigationItem.title = Lists.selectedList.name
         self.tabBarController?.tabBar.items?[1].selectedImage = UIImage(systemName: Lists.TabBarSelectedImageName)?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: Lists.TabBarImageName)?.withRenderingMode(.alwaysTemplate)

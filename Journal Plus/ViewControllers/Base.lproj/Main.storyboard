@@ -17,79 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b2-cW-YqF">
-                                <rect key="frame" x="0.0" y="134" width="414" height="679"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIy-W7-b7k">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Oy-z2-dol">
-                                                <rect key="frame" x="8" y="0.0" width="80" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="nq3-yZ-qMp"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                <state key="normal" title="←"/>
-                                                <connections>
-                                                    <action selector="prevMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yjb-V0-VvB"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBy-UX-k1e">
-                                                <rect key="frame" x="326" y="0.0" width="80" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="Zd9-NW-gFD"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                                <state key="normal" title="→"/>
-                                                <connections>
-                                                    <action selector="nextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iXm-1v-MI5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzs-c2-7tQ">
-                                                <rect key="frame" x="88" y="0.0" width="238" height="50"/>
-                                                <state key="normal" title="Month - Date">
-                                                    <color key="titleColor" systemColor="labelColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="monthTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dvn-Gt-8IS"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="7Oy-z2-dol" firstAttribute="leading" secondItem="YIy-W7-b7k" secondAttribute="leading" constant="8" id="0dU-CQ-sAb"/>
-                                            <constraint firstItem="Uzs-c2-7tQ" firstAttribute="top" secondItem="YIy-W7-b7k" secondAttribute="top" id="1AA-W4-S7r"/>
-                                            <constraint firstItem="Uzs-c2-7tQ" firstAttribute="leading" secondItem="7Oy-z2-dol" secondAttribute="trailing" id="1gg-C1-DHD"/>
-                                            <constraint firstItem="7Oy-z2-dol" firstAttribute="top" secondItem="YIy-W7-b7k" secondAttribute="top" id="2dV-l1-WHf"/>
-                                            <constraint firstAttribute="bottom" secondItem="7Oy-z2-dol" secondAttribute="bottom" id="8pB-Gt-2ad"/>
-                                            <constraint firstAttribute="bottom" secondItem="IBy-UX-k1e" secondAttribute="bottom" id="T3b-h1-m5y"/>
-                                            <constraint firstAttribute="height" constant="50" id="UE9-4y-BdU"/>
-                                            <constraint firstAttribute="bottom" secondItem="Uzs-c2-7tQ" secondAttribute="bottom" id="gAQ-CI-SLm"/>
-                                            <constraint firstItem="IBy-UX-k1e" firstAttribute="leading" secondItem="Uzs-c2-7tQ" secondAttribute="trailing" id="ol1-dJ-Ryf"/>
-                                            <constraint firstAttribute="trailing" secondItem="IBy-UX-k1e" secondAttribute="trailing" constant="8" id="pez-jV-qcI"/>
-                                            <constraint firstItem="IBy-UX-k1e" firstAttribute="top" secondItem="YIy-W7-b7k" secondAttribute="top" id="toV-3g-ZYC"/>
-                                        </constraints>
-                                    </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D1I-dC-V9C" customClass="CalendarView" customModule="Journal_Plus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="629"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rt6-A3-EAx">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells/>
-                                    </collectionView>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="YIy-W7-b7k" firstAttribute="top" secondItem="9b2-cW-YqF" secondAttribute="top" id="1SS-ml-dUV"/>
-                                    <constraint firstItem="YIy-W7-b7k" firstAttribute="leading" secondItem="9b2-cW-YqF" secondAttribute="leading" id="Q0x-Qu-iYf"/>
-                                    <constraint firstAttribute="bottom" secondItem="D1I-dC-V9C" secondAttribute="bottom" id="cLd-eH-7IK"/>
-                                    <constraint firstItem="D1I-dC-V9C" firstAttribute="leading" secondItem="9b2-cW-YqF" secondAttribute="leading" id="h1Q-xq-D7L"/>
-                                    <constraint firstAttribute="trailing" secondItem="D1I-dC-V9C" secondAttribute="trailing" id="uGo-aP-kpC"/>
-                                    <constraint firstAttribute="trailing" secondItem="YIy-W7-b7k" secondAttribute="trailing" id="uNr-Cf-uBu"/>
-                                    <constraint firstItem="D1I-dC-V9C" firstAttribute="top" secondItem="YIy-W7-b7k" secondAttribute="bottom" id="zaf-eF-zbp"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1m8-Wh-cfg">
                                 <rect key="frame" x="8" y="52" width="398" height="20"/>
@@ -105,9 +34,9 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fd" placeholder="title" textAlignment="natural" minimumFontSize="8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ay3-Pk-Nlx">
-                                <rect key="frame" x="8" y="74" width="398" height="60"/>
+                                <rect key="frame" x="8" y="74" width="398" height="66"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="ZC0-Dg-wR9"/>
+                                    <constraint firstAttribute="height" constant="66" id="ZC0-Dg-wR9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -143,12 +72,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="gPj-fP-9Mj"/>
                     <connections>
-                        <outlet property="calenderFromBottom" destination="5Zz-m3-bGu" id="9A8-9m-XCf"/>
-                        <outlet property="calenderView" destination="D1I-dC-V9C" id="3Rn-bk-qkg"/>
                         <outlet property="expandButton" destination="vpz-23-yXv" id="2Yq-s4-e24"/>
-                        <outlet property="monthButton" destination="Uzs-c2-7tQ" id="ola-s9-FeN"/>
-                        <outlet property="nextButton" destination="IBy-UX-k1e" id="Lpo-o9-cKX"/>
-                        <outlet property="prevButton" destination="7Oy-z2-dol" id="uuf-um-B1a"/>
+                        <outlet property="mainView" destination="9b2-cW-YqF" id="TTg-nI-tg5"/>
                         <outlet property="selectedDateButton" destination="1m8-Wh-cfg" id="Iag-Qg-jMm"/>
                         <outlet property="titleTF" destination="ay3-Pk-Nlx" id="SeW-GK-WEZ"/>
                     </connections>
@@ -702,7 +627,7 @@
         <!--Month-->
         <scene sceneID="QyM-uI-5w6">
             <objects>
-                <viewController id="066-XV-brU" customClass="FinishVC" customModule="DoneTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="066-XV-brU" customClass="FinishVC" customModule="Journal_Plus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l4s-jd-xyf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

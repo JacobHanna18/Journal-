@@ -184,7 +184,7 @@ extension UISwitch{
     }
 }
 
-class Day: Comparable, ToString, CustomStringConvertible, Codable{
+class Day: Comparable, ToString, CustomStringConvertible, Codable, ObservableObject{
     var description: String{
         return "\(y)/\(m)/\(d)"
     }
@@ -198,9 +198,9 @@ class Day: Comparable, ToString, CustomStringConvertible, Codable{
         return lhs.y == rhs.y && lhs.m == rhs.m && lhs.d == rhs.d
     }
     
-    var y = -1
-    var m = -1
-    var d = -1
+    @Published var y = -1
+    @Published var m = -1
+    @Published var d = -1
     
     init(_ y : Int , _ m : Int , _ d : Int) {
         if (d <= Day.dayInMonth(y,m) && m >= 1 && m <= 12){
@@ -222,6 +222,13 @@ class Day: Comparable, ToString, CustomStringConvertible, Codable{
         self.m = date.month
         self.d = date.day
     }
+    
+    func set(_ d : Day){
+        self.d = d.d
+        self.m = d.m
+        self.y = d.y
+    }
+    
     
     var valid : Bool{
         return y != -1

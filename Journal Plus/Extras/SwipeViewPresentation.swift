@@ -38,21 +38,6 @@ extension UIViewController{
                 r.remove()
             }, cells: [date,title,time], button: .init(label: "Remove", showAlert: true))
         }
-        /*
-        self.presentPointView(PointsList(points: { () -> [MainPoint] in
-            let date = DataPoint<String>("Date",get: r.day.toString)
-            let title = InputPoint<String>("Reminder Title", get: r.title, set: { (str) in
-                r.title = str
-                r.update()
-            }, placeHolder: "reminder title")
-            let time = DateInputPoint("Time of Reminder Delivery", get: Calendar.current.date(from: r.trigger), set: { (date) in
-                r.time = Time(h: date.hour, m: date.minute)
-                r.update()
-            },mode: .time,minimum : nil)
-            return [date,title,time]
-        }, title: "Reminder", delete: {
-            r.remove()
-        }, .other("Remove", true)))*/
     }
     //expand title
     func presentExpandedView (_ day : Day){
@@ -60,32 +45,10 @@ extension UIViewController{
         let storyBoard: UIStoryboard = self.storyboard!
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "fillVCID") as! fullVC
         newViewController.day = day
+        newViewController.presenting = self as? Presenting
         let navC = UINavigationController(rootViewController: newViewController)
         self.present(navC, animated: true, completion: nil)
         return
-        
-        /*let input = FormCell(type: .LongStringInput(height: 100), title: "") { (inp) in
-            if let str = inp as? String{
-                titles[day,true] = str
-            }
-        } get: { () -> Any in
-            titles[day,true] ?? ""
-        }
-
-        self.showForm { () -> FormProperties in
-            return FormProperties(title: day.toString, delete: {
-                titles[day, true] = nil
-            }, cells: [input], button: .init(label: "Clear", showAlert: true))
-        }
-        self.presentPointView(PointsList(points: { () -> [MainPoint] in
-            return [
-                LongInput<String>(day.toString, height: 500, background: AppTintColor.value.withAlphaComponent(0.1), get: titles[day,true], set: { (str) in
-                    titles[day,true] = str
-                })
-            ]
-        }, title: "Expanded Title", delete: {
-            titles[day, true] = nil
-        }, .other("Clear", true)))*/
     }
     //Present duplicate titles
     func presentDuplicate (_ days : [Day],title : String){

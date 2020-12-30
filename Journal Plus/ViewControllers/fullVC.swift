@@ -13,10 +13,16 @@ class fullVC: UIViewController, UITextViewDelegate {
     var day = Day()
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var backgroundV: UIView!
+    var presenting : Presenting?
     
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        presenting?.reload()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

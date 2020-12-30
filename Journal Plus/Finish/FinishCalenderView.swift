@@ -24,10 +24,9 @@ struct FinishCalenderView: View {
     }
     
     var tapMonth : (()->()) = {
-        print("hello")
     }
     
-    var color = Color(Lists.selectedList.color)
+    var color = Color(Lists.selectedList.listColor)
     var doneImage : String = Lists.selectedList.doneImageName
     var undoneImage : String = Lists.selectedList.undoneImageName
     
@@ -56,10 +55,13 @@ struct FinishCalenderView: View {
             }
             Spacer()
             HStack {
-                Spacer()
+                Zero()
                 ForEach(0 ..< 7){ j in
-                    Text(Calender.dayTitles[j])
-                    Spacer()
+                    ZStack {
+                        Color.clear.aspectRatio(2 ,contentMode: .fit)
+                        Text(Calender.dayTitles[j])
+                    }.padding(.all, 3.0)
+                    Zero()
                 }
                 
             }
@@ -67,19 +69,23 @@ struct FinishCalenderView: View {
             Spacer()
             ForEach(0 ..< calender.dayRows){ i in
                 HStack {
-                    Spacer()
+                    Zero()
                     ForEach(0 ..< 7){ j in
-                        VStack{
-                            Text("\(calender[i,j].d)").fontWeight(calender[i,j] == Day() ? .semibold : .regular)
-                            Button(action: {
-                                done[i][j].toggle()
-                                Lists.selectedList[calender[i,j]] = done[i][j]
-                                Lists.set()
-                            }, label: {
-                                Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title)
-                            }).disabled(calender[i,j] > Day())
-                        }.opacity(calender[i,j].m == calender.month ? 1 : 0.3)
-                        Spacer()
+                        ZStack {
+                            Color.clear
+                            
+                            VStack{
+                                Text("\(calender[i,j].d)").fontWeight(calender[i,j] == Day() ? .semibold : .regular)
+                                Button(action: {
+                                    done[i][j].toggle()
+                                    Lists.selectedList[calender[i,j]] = done[i][j]
+                                    Lists.set()
+                                }, label: {
+                                    Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title)
+                                }).disabled(calender[i,j] > Day())
+                            }.opacity(calender[i,j].m == calender.month ? 1 : 0.3).padding(.all, 3.0)
+                        }
+                        Zero()
                     }
                     
                 }
