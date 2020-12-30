@@ -28,7 +28,7 @@ class AuthenticationVC: UIViewController {
 
                     // Move to the main thread because a state update triggers UI changes.
                     DispatchQueue.main.async { [unowned self] in
-                        self.performSegue(withIdentifier: AuthenticationVC.segID, sender: self)
+                        self.enterApp()
                     }
 
                 } else {
@@ -46,7 +46,7 @@ class AuthenticationVC: UIViewController {
             let alert = UIAlertController(title: "You hav not set a password on this device", message: "We will turn off your secure app authentication, you will need to add a passcode or biometry authentication on the device to access this feature.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (a) in
                 DispatchQueue.main.async { [unowned self] in
-                    self.performSegue(withIdentifier: AuthenticationVC.segID, sender: self)
+                    self.enterApp()
                 }
             }))
             self.present(alert, animated: true, completion: nil)
@@ -58,9 +58,17 @@ class AuthenticationVC: UIViewController {
         if Authentication.Enable.value{
             authenticate()
         }else{
-            self.performSegue(withIdentifier: AuthenticationVC.segID, sender: self)
+            enterApp()
         }
         
+    }
+    
+    func enterApp(){
+        if NavController.nav != nil{
+            self.present(NavController.nav!, animated: true, completion: nil)
+        }else{
+            self.performSegue(withIdentifier: AuthenticationVC.segID, sender: self)
+        }
     }
     
     override func viewDidLoad() {

@@ -545,7 +545,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <segue destination="YBc-ls-x0p" kind="presentation" identifier="AuthenticateSuccessSegue" modalPresentationStyle="fullScreen" id="OSm-w6-8EJ"/>
+                        <segue destination="YBc-ls-x0p" kind="presentation" identifier="AuthenticateSuccessSegue" id="OSm-w6-8EJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8v-bm-rTE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -555,7 +555,7 @@
         <!--Nav Controller-->
         <scene sceneID="5ca-HK-q1X">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YBc-ls-x0p" customClass="NavController" customModule="Journal_Plus" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="YBc-ls-x0p" customClass="NavController" customModule="Journal_Plus" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aR6-Lc-Qth"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iZh-By-nIg">

@@ -76,14 +76,21 @@ struct FinishCalenderView: View {
                             
                             VStack{
                                 Text("\(calender[i,j].d)").fontWeight(calender[i,j] == Day() ? .semibold : .regular)
-                                Button(action: {
-                                    done[i][j].toggle()
-                                    Lists.selectedList[calender[i,j]] = done[i][j]
-                                    Lists.set()
-                                }, label: {
-                                    Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title)
-                                }).disabled(calender[i,j] > Day())
-                            }.opacity(calender[i,j].m == calender.month ? 1 : 0.3).padding(.all, 3.0)
+                                Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title).foregroundColor(color)
+//                                Button(action: {
+//                                    done[i][j].toggle()
+//                                    Lists.selectedList[calender[i,j]] = done[i][j]
+//                                    Lists.set()
+//                                }, label: {
+//                                    Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title)
+//                                }).disabled(calender[i,j] > Day())
+                            }.opacity(calender[i,j].m == calender.month ? 1 : 0.3).padding(.all, 3.0).onTapGesture {
+                                done[i][j].toggle()
+                                Lists.selectedList[calender[i,j]] = done[i][j]
+                                Lists.set()
+                            }.onLongPressGesture {
+                                selectDate(day: calender[i,j])
+                            }
                         }
                         Zero()
                     }

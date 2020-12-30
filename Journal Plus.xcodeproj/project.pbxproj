@@ -1187,7 +1187,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Journal Plus/Journal Plus.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Journal\\ Plus",
@@ -1228,7 +1228,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Journal Plus/Journal Plus.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/Journal\\ Plus",
@@ -1267,7 +1267,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				INFOPLIST_FILE = DayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1295,7 +1295,7 @@
 				CODE_SIGN_ENTITLEMENTS = DayWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				INFOPLIST_FILE = DayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1321,7 +1321,7 @@
 				CODE_SIGN_ENTITLEMENTS = JournalShareExtension/JournalShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				INFOPLIST_FILE = JournalShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -1346,7 +1346,7 @@
 				CODE_SIGN_ENTITLEMENTS = JournalShareExtension/JournalShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 2.0;
 				DEVELOPMENT_TEAM = 26VASZ3327;
 				INFOPLIST_FILE = JournalShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
