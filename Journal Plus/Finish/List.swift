@@ -242,7 +242,7 @@ class doneList : Codable{
         name = "New List"
         days = [:]
         color = AppTintColor.value
-        doneImageName = "checkmark.circle"
+        doneImageName = "largecircle.fill.circle"
         undoneImageName = "circle"
         colorMatchApp = true
     }

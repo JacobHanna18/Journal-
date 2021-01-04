@@ -1,5 +1,7 @@
 circle
-circle.fill
+largecircle.fill.circle
+circle.dashed
+circle.dashed.inset.fill
 checkmark.circle
 checkmark.circle.fill
 pencil.circle
@@ -36,8 +38,6 @@ person.crop.circle
 person.crop.circle.fill
 command.circle
 command.circle.fill
-restart.circle
-dot.arrowtriangles.up.right.down.left.circle
 moon.circle
 moon.circle.fill
 play.circle
@@ -60,7 +60,6 @@ magnifyingglass.circle
 magnifyingglass.circle.fill
 mic.circle
 mic.circle.fill
-largecircle.fill.circle
 smallcircle.fill.circle
 smallcircle.fill.circle.fill
 smallcircle.circle
@@ -181,3 +180,17 @@ questionmark.circle
 questionmark.circle.fill
 exclamationmark.circle
 exclamationmark.circle.fill
+lifepreserver
+lifepreserver.fill
+clock
+clock.fill
+face.smiling
+face.smiling.fill
+face.dashed
+face.dashed.fill
+circle.lefthalf.fill
+circle.righthalf.fill
+circle.fill
+globe
+network
+rotate.3d
