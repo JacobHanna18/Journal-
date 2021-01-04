@@ -112,7 +112,7 @@ class GetSetTitles {
             let cells = new.count + overwrite.count == 0 ? [FormCell(type: .StringTitle(systemImageName: ""), title: "This file doesn't have any new titles to add.")] : (overCells + newCells)
             return FormProperties(title: "File Titles", done: {
                     GetSetTitles.set(overwrite: overwrite, new: new)
-                }, cells: cells, button: new.count + overwrite.count == 0 ? .none : .init(label: "Cancel", showAlert: false), listView: true)
+            }, cells: cells, button: new.count + overwrite.count == 0 ? .none : .init(label: "Cancel", showAlert: false), formType: .list)
         } catch {
             return nil
         }

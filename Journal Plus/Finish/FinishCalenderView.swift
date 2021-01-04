@@ -30,8 +30,11 @@ struct FinishCalenderView: View {
     var doneImage : String = Lists.selectedList.doneImageName
     var undoneImage : String = Lists.selectedList.undoneImageName
     
+    var selectedIndex : Int = Lists.selectedIndex
+    
     var body: some View {
         VStack{
+            
             HStack{
                 Button(action: {
                     calender.prevMonth()
@@ -76,18 +79,13 @@ struct FinishCalenderView: View {
                             
                             VStack{
                                 Text("\(calender[i,j].d)").fontWeight(calender[i,j] == Day() ? .semibold : .regular)
-                                Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title).foregroundColor(color)
-//                                Button(action: {
-//                                    done[i][j].toggle()
-//                                    Lists.selectedList[calender[i,j]] = done[i][j]
-//                                    Lists.set()
-//                                }, label: {
-//                                    Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title)
-//                                }).disabled(calender[i,j] > Day())
+                                Image(systemName: done[i][j] ? doneImage : undoneImage).font(.title).foregroundColor(calender[i,j] > Day() ? Color(UIColor.systemGray) : color)
                             }.opacity(calender[i,j].m == calender.month ? 1 : 0.3).padding(.all, 3.0).onTapGesture {
-                                done[i][j].toggle()
-                                Lists.selectedList[calender[i,j]] = done[i][j]
-                                Lists.set()
+                                if calender[i,j] <= Day(){
+                                    done[i][j].toggle()
+                                    Lists.selectedList[calender[i,j]] = done[i][j]
+                                    Lists.set()
+                                }
                             }.onLongPressGesture {
                                 selectDate(day: calender[i,j])
                             }
@@ -111,7 +109,7 @@ struct FinishCalenderView: View {
             updateDone()
         }).onChange(of: calender.year, perform: { value in
             updateDone()
-        }).onChange(of: color, perform: { value in
+        }).onChange(of: selectedIndex, perform: { value in
             updateDone()
         }).onAppear(perform: {
             updateDone()

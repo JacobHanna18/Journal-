@@ -31,7 +31,6 @@ struct CalendarViewUI: View {
     var delegate : CalenderDelegate
     @ObservedObject var selectedDay = Day()
     @ObservedObject var calender : Calender = Calender()
-    @State var re = true
     
     func set(_ d : Day){
         selectedDay.set(d)

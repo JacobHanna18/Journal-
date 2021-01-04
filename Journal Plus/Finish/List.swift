@@ -58,6 +58,20 @@ class Lists: CodableSetting{
         Lists.set()
     }
     
+    static var reorderProps : FormProperties{
+        let listCells = Lists.value.map({ (l) -> FormCell in
+            return FormCell(type: .StringTitle(systemImageName: l.doneImageName, color: l.listColor), title: l.name)
+        })
+        
+        return FormProperties(title: "Lists", cells: listCells, button: .none, onMove: { (set, i) in
+            Lists.value.move(fromOffsets: set, toOffset: i)
+            Lists.set()
+        }, onDelete: { (set) in
+            Lists.value.remove(atOffsets: set)
+            Lists.set()
+        }, formType: .reorder)
+    }
+    
     static var props : FormProperties{
         let newList = FormCell(type: .StringTitle(systemImageName: "calendar.badge.plus"), title: "Create New List", tap:  {
             Lists.newList()
@@ -68,6 +82,10 @@ class Lists: CodableSetting{
             let selector = UIDocumentPickerViewController(forOpeningContentTypes: [UTType(filenameExtension: doneList.fileExtension)!], asCopy: true)
             selector.delegate = FinishVC.main
             FormVC.top?.present(selector, animated: true, completion: nil)
+        })
+        
+        let reorder = FormCell(type: .StringTitle(systemImageName: "list.bullet"), title: "Reorder Lists", divider: true, tap:  {
+            FormVC.top?.showForm({Lists.reorderProps})
         })
         
         let selectList = FormCell(type: .StringTitle(), title: "Select list to show")
@@ -85,9 +103,10 @@ class Lists: CodableSetting{
             })
         })
         
-        return FormProperties(title: "Lists", cells: [newList, fromFile, selectList] + listCells, button: .none)
+        return FormProperties(title: "Lists", cells: [newList, fromFile, reorder, selectList] + listCells, button: .none)
     }
     
+    static var listNum = 0
     static func props (of index : Int) -> FormProperties{
         let name = FormCell(type: .StringInput, title: "Name") { (inp) in
             if let s = inp as? String{
@@ -120,23 +139,31 @@ class Lists: CodableSetting{
             return Color(Lists.value[index].color)
         }
         
-        
-        let doneImageName = FormCell(type: .MatrixSelection(columns: 10, values: Lists.images), title: "Done Image") { (inp) in
+        let imageColl = FormCell(type: .SingleSelection(labels: Lists.imageLabels, columns: 3), title: "Image Collection", divider: false) { (inp) in
             if let i = inp as? Int{
-                Lists.value[index].doneImageName = Lists.imageNames[i]
+                Lists.listNum = i
+                FormVC.top?.reload()
+            }
+        } get: { () -> Any in
+            return Lists.listNum
+        }
+        
+        let doneImageName = FormCell(type: .MatrixSelection(columns: 10, values: Lists.imageViews[Lists.listNum]), title: "Done Image") { (inp) in
+            if let i = inp as? Int{
+                Lists.value[index].doneImageName = Lists.imageN[Lists.listNum][i]
                 Lists.set()
             }
         } get: { () -> Any in
-            return Lists.imageNames.firstIndex(of: Lists.value[index].doneImageName) ?? -1
+            return Lists.imageN[Lists.listNum].firstIndex(of: Lists.value[index].doneImageName) ?? -1
         }
 
-        let undoneImageName = FormCell(type: .MatrixSelection(columns: 10, values: Lists.images), title: "Undone Image") { (inp) in
+        let undoneImageName = FormCell(type: .MatrixSelection(columns: 10, values: Lists.imageViews[Lists.listNum]), title: "Undone Image") { (inp) in
             if let i = inp as? Int{
-                Lists.value[index].undoneImageName = Lists.imageNames[i]
+                Lists.value[index].undoneImageName = Lists.imageN[Lists.listNum][i]
                 Lists.set()
             }
         } get: { () -> Any in
-            return Lists.imageNames.firstIndex(of: Lists.value[index].undoneImageName) ?? -1
+            return Lists.imageN[Lists.listNum].firstIndex(of: Lists.value[index].undoneImageName) ?? -1
         }
         
         let export = FormCell(type: .StringTitle(systemImageName: "square.and.arrow.up"), title: "Export done list", tap: {
@@ -173,7 +200,7 @@ class Lists: CodableSetting{
                     Lists.selectedIndex -= 1
                 }
             }
-        }, cells: [name,matchApp, color,doneImageName,undoneImageName, export], button: .delete)
+        }, cells: [name,matchApp, color, imageColl,doneImageName,undoneImageName, export], button: .delete)
 
 
     }
@@ -364,194 +391,25 @@ extension UIColor{
 }
 
 extension Lists{
-    static let imageNames = [
-        "circle",
-        "checkmark.circle",
-        "checkmark.circle.fill",
-        "pencil.circle",
-        "pencil.circle.fill",
-        "trash.circle",
-        "trash.circle.fill",
-        "folder.circle",
-        "folder.circle.fill",
-        "doc.circle",
-        "doc.circle.fill",
-        "calendar.circle",
-        "calendar.circle.fill",
-        "arrowshape.turn.up.left.circle",
-        "arrowshape.turn.up.left.circle.fill",
-        "arrowshape.turn.up.right.circle",
-        "arrowshape.turn.up.right.circle.fill",
-        "book.circle",
-        "book.circle.fill",
-        "paperclip.circle",
-        "paperclip.circle.fill",
-        "link.circle",
-        "link.circle.fill",
-        "pencil.tip.crop.circle",
-        "person.circle",
-        "person.circle.fill",
-        "person.crop.circle",
-        "person.crop.circle.fill",
-        "circle.bottomthird.split",
-        "moon.circle",
-        "moon.circle.fill",
-        "play.circle",
-        "play.circle.fill",
-        "pause.circle",
-        "pause.circle.fill",
-        "stop.circle",
-        "stop.circle.fill",
-        "magnifyingglass.circle",
-        "magnifyingglass.circle.fill",
-        "mic.circle",
-        "mic.circle.fill",
-        "heart.circle",
-        "heart.circle.fill",
-        "heart.slash.circle",
-        "heart.slash.circle.fill",
-        "star.circle",
-        "star.circle.fill",
-        "flag.circle",
-        "flag.circle.fill",
-        "location.circle",
-        "location.circle.fill",
-        "bell.circle",
-        "bell.circle.fill",
-        "tag.circle",
-        "tag.circle.fill",
-        "bolt.circle",
-        "bolt.circle.fill",
-        "ant.circle",
-        "ant.circle.fill",
-        "camera.circle",
-        "camera.circle.fill",
-        "phone.circle",
-        "phone.circle.fill",
-        "phone.down.circle",
-        "phone.down.circle.fill",
-        "envelope.circle",
-        "envelope.circle.fill",
-        "ellipsis.circle",
-        "ellipsis.circle.fill",
-        "lock.circle",
-        "lock.circle.fill",
-        "pin.circle",
-        "pin.circle.fill",
-        "mappin.circle",
-        "mappin.circle.fill",
-        "tv.circle",
-        "tv.circle.fill",
-        "viewfinder.circle",
-        "viewfinder.circle.fill",
-        "waveform.circle",
-        "waveform.circle.fill",
-        "purchased.circle",
-        "purchased.circle.fill",
-        "bolt.horizontal.circle",
-        "bolt.horizontal.circle.fill",
-        "grid.circle",
-        "grid.circle.fill",
-        "line.horizontal.3.decrease.circle",
-        "line.horizontal.3.decrease.circle.fill",
-        "f.cursive.circle",
-        "f.cursive.circle.fill",
-        "info.circle",
-        "info.circle.fill",
-        "questionmark.circle",
-        "questionmark.circle.fill",
-        "exclamationmark.circle",
-        "exclamationmark.circle.fill",
-        "plus.circle",
-        "plus.circle.fill",
-        "minus.circle",
-        "minus.circle.fill",
-        "plusminus.circle",
-        "plusminus.circle.fill",
-        "multiply.circle",
-        "multiply.circle.fill",
-        "divide.circle",
-        "divide.circle.fill",
-        "equal.circle",
-        "equal.circle.fill",
-        "lessthan.circle",
-        "lessthan.circle.fill",
-        "greaterthan.circle",
-        "greaterthan.circle.fill",
-        "number.circle",
-        "number.circle.fill",
-        "xmark.circle",
-        "xmark.circle.fill",
-        "chevron.up.circle",
-        "chevron.up.circle.fill",
-        "chevron.down.circle",
-        "chevron.down.circle.fill",
-        "chevron.left.circle",
-        "chevron.left.circle.fill",
-        "chevron.right.circle",
-        "chevron.right.circle.fill",
-        "arrow.up.circle",
-        "arrow.up.circle.fill",
-        "arrow.down.circle",
-        "arrow.down.circle.fill",
-        "arrow.left.circle",
-        "arrow.left.circle.fill",
-        "arrow.right.circle",
-        "arrow.right.circle.fill",
-        "arrow.up.left.circle",
-        "arrow.up.left.circle.fill",
-        "arrow.up.right.circle",
-        "arrow.up.right.circle.fill",
-        "arrow.down.left.circle",
-        "arrow.down.left.circle.fill",
-        "arrow.down.right.circle",
-        "arrow.down.right.circle.fill",
-        "arrow.up.arrow.down.circle",
-        "arrow.up.arrow.down.circle.fill",
-        "arrow.right.arrow.left.circle",
-        "arrow.right.arrow.left.circle.fill",
-        "arrow.uturn.up.circle",
-        "arrow.uturn.up.circle.fill",
-        "arrow.uturn.down.circle",
-        "arrow.uturn.down.circle.fill",
-        "arrow.uturn.left.circle",
-        "arrow.uturn.left.circle.fill",
-        "arrow.uturn.right.circle",
-        "arrow.uturn.right.circle.fill",
-        "arrow.up.and.down.circle",
-        "arrow.up.and.down.circle.fill",
-        "arrow.left.and.right.circle",
-        "arrow.left.and.right.circle.fill",
-        "arrow.clockwise.circle",
-        "arrow.clockwise.circle.fill",
-        "arrow.counterclockwise.circle",
-        "arrow.counterclockwise.circle.fill",
-        "arrow.2.circlepath.circle",
-        "arrow.2.circlepath.circle.fill",
-        "leaf.arrow.circlepath",
-        "arrowtriangle.up.circle",
-        "arrowtriangle.up.circle.fill",
-        "arrowtriangle.down.circle",
-        "arrowtriangle.down.circle.fill",
-        "arrowtriangle.left.circle",
-        "arrowtriangle.left.circle.fill",
-        "arrowtriangle.right.circle",
-        "arrowtriangle.right.circle.fill",
-        "circle.fill",
-        "circle.lefthalf.fill",
-        "circle.righthalf.fill",
-        "largecircle.fill.circle",
-        "smallcircle.fill.circle",
-        "smallcircle.fill.circle.fill",
-        "smallcircle.circle",
-        "smallcircle.circle.fill",
-        "slash.circle",
-        "slash.circle.fill",
-        "asterisk.circle",
-        "asterisk.circle.fill"
-    ]
+    static var (imageLabels , imageViews, imageN) = Lists.getIconsNames()
     
-    static let images = imageNames.map { (str) -> AnyView in
-        return AnyView(Image(systemName: str).renderingMode(.template).resizable().aspectRatio(contentMode: .fill))
+    static func getIconsNames() -> ([String], [[AnyView]], [[String]]){
+        let labels = ["Shapes", "Numbers", "Currencies", "Letters","Arrows","Math"]
+        var images : [[AnyView]] = []
+        var imageNames : [[String]] = []
+        
+        for l in labels{
+            do{
+                let names = try String(contentsOfFile: Bundle.main.path(forResource: l, ofType: "txt")!).split{$0 == "\n"}.map {String($0)}
+                imageNames.append(names)
+                images.append(names.map { (str) -> AnyView in
+                    return AnyView(Image(systemName: str).renderingMode(.template).resizable().aspectRatio(contentMode: .fill))
+                })
+            }catch{
+                images.append([])
+                imageNames.append([])
+            }
+        }
+        return(labels,images, imageNames)
     }
 }

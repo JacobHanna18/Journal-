@@ -142,6 +142,13 @@
 		7DA9081324BB7B5600FA5F72 /* Dark Pink@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E724BB7B5500FA5F72 /* Dark Pink@3x.png */; };
 		7DA9081424BB7B5600FA5F72 /* Purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DA907E824BB7B5600FA5F72 /* Purple@2x.png */; };
 		7DC411DD24BF65C2003FDF85 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204AC24BE287000E18E4C /* CalenderView.swift */; };
+		7DC7EA9725A2897A00A98E73 /* FinishPageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC7EA9625A2897A00A98E73 /* FinishPageList.swift */; };
+		7DC7EA9D25A2B16100A98E73 /* Shapes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7EA9C25A2B16100A98E73 /* Shapes.txt */; };
+		7DC7EAA825A2B81D00A98E73 /* Numbers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7EAA725A2B81D00A98E73 /* Numbers.txt */; };
+		7DC7EAAE25A2B83300A98E73 /* Currencies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7EAAD25A2B83300A98E73 /* Currencies.txt */; };
+		7DC7EAB425A2B83B00A98E73 /* Letters.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7EAB325A2B83B00A98E73 /* Letters.txt */; };
+		7DC7EABA25A2B84700A98E73 /* Arrows.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7EAB925A2B84700A98E73 /* Arrows.txt */; };
+		7DC7EAC025A2B85300A98E73 /* Math.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7DC7EABF25A2B85300A98E73 /* Math.txt */; };
 		7DE204A724BE23F800E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
 		7DE204AB24BE27DC00E18E4C /* Calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE204A624BE23F800E18E4C /* Calender.swift */; };
 /* End PBXBuildFile section */
@@ -326,6 +333,13 @@
 		7DA9081A24BB8F1A00FA5F72 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		7DA9081C24BB8F1B00FA5F72 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		7DA9082A24BB8F2200FA5F72 /* JournalWExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JournalWExtension.entitlements; sourceTree = "<group>"; };
+		7DC7EA9625A2897A00A98E73 /* FinishPageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPageList.swift; sourceTree = "<group>"; };
+		7DC7EA9C25A2B16100A98E73 /* Shapes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Shapes.txt; sourceTree = "<group>"; };
+		7DC7EAA725A2B81D00A98E73 /* Numbers.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Numbers.txt; sourceTree = "<group>"; };
+		7DC7EAAD25A2B83300A98E73 /* Currencies.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Currencies.txt; sourceTree = "<group>"; };
+		7DC7EAB325A2B83B00A98E73 /* Letters.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Letters.txt; sourceTree = "<group>"; };
+		7DC7EAB925A2B84700A98E73 /* Arrows.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Arrows.txt; sourceTree = "<group>"; };
+		7DC7EABF25A2B85300A98E73 /* Math.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Math.txt; sourceTree = "<group>"; };
 		7DE204A624BE23F800E18E4C /* Calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calender.swift; sourceTree = "<group>"; };
 		7DE204AC24BE287000E18E4C /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -414,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				7D5C3F3F25939ADF00872A64 /* FormView */,
+				7DC7EAA625A2B80300A98E73 /* FinishIcons */,
 				7D0FC5DF255B253200D6C2D7 /* FileIcon.icns */,
 				7DA907BC24BB7B3B00FA5F72 /* icons */,
 				16D679BC21AD536D000B1CEA /* rm_typerighter_old.otf */,
@@ -557,6 +572,7 @@
 				7D5C3F7225939B0500872A64 /* FinishVC.swift */,
 				7D5C3F3325939A9300872A64 /* FinishCalenderView.swift */,
 				7D5C3F3425939A9400872A64 /* List.swift */,
+				7DC7EA9625A2897A00A98E73 /* FinishPageList.swift */,
 			);
 			path = Finish;
 			sourceTree = "<group>";
@@ -644,6 +660,19 @@
 				7DA907BE24BB7B4E00FA5F72 /* Yellow@3x.png */,
 			);
 			path = icons;
+			sourceTree = "<group>";
+		};
+		7DC7EAA625A2B80300A98E73 /* FinishIcons */ = {
+			isa = PBXGroup;
+			children = (
+				7DC7EA9C25A2B16100A98E73 /* Shapes.txt */,
+				7DC7EAA725A2B81D00A98E73 /* Numbers.txt */,
+				7DC7EAAD25A2B83300A98E73 /* Currencies.txt */,
+				7DC7EAB325A2B83B00A98E73 /* Letters.txt */,
+				7DC7EAB925A2B84700A98E73 /* Arrows.txt */,
+				7DC7EABF25A2B85300A98E73 /* Math.txt */,
+			);
+			path = FinishIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -810,13 +839,16 @@
 				1625226920FC07D1005E1860 /* colors.xcassets in Resources */,
 				7DA9080424BB7B5600FA5F72 /* Blue-DARK@3x.png in Resources */,
 				7DA9080D24BB7B5600FA5F72 /* Yellow-DARK@3x.png in Resources */,
+				7DC7EAA825A2B81D00A98E73 /* Numbers.txt in Resources */,
 				16B8A58C20EE7BB900AFE7D1 /* Main.storyboard in Resources */,
 				7DA907F924BB7B5600FA5F72 /* Black@2x.png in Resources */,
 				7DA907EE24BB7B5600FA5F72 /* Pink-DARK@2x.png in Resources */,
 				7DA9080724BB7B5600FA5F72 /* Yellow-DARK@2x.png in Resources */,
 				16974D2F21022D9C006EDC4F /* Assets.xcassets in Resources */,
 				16CA267020F881AB005CF903 /* ListCell.xib in Resources */,
+				7DC7EAC025A2B85300A98E73 /* Math.txt in Resources */,
 				16D679BD21AD536D000B1CEA /* rm_typerighter_old.otf in Resources */,
+				7DC7EABA25A2B84700A98E73 /* Arrows.txt in Resources */,
 				7DA907F424BB7B5600FA5F72 /* Dark Pink-DARK@3x.png in Resources */,
 				7DA9080B24BB7B5600FA5F72 /* Purple-DARK@3x.png in Resources */,
 				7DA907FA24BB7B5600FA5F72 /* Black@3x.png in Resources */,
@@ -824,17 +856,20 @@
 				7DA9080C24BB7B5600FA5F72 /* Red@3x.png in Resources */,
 				7DA9080F24BB7B5600FA5F72 /* Blue@3x.png in Resources */,
 				7DA907F324BB7B5600FA5F72 /* Cyan-DARK@2x.png in Resources */,
+				7DC7EAB425A2B83B00A98E73 /* Letters.txt in Resources */,
 				7D5C3F6625939ADF00872A64 /* FormVC.xib in Resources */,
 				7DA907EF24BB7B5600FA5F72 /* Dark Pink@2x.png in Resources */,
 				7DA9080924BB7B5600FA5F72 /* Black-DARK@3x.png in Resources */,
 				7DA9081424BB7B5600FA5F72 /* Purple@2x.png in Resources */,
 				7DA907F524BB7B5600FA5F72 /* Yellow@2x.png in Resources */,
+				7DC7EA9D25A2B16100A98E73 /* Shapes.txt in Resources */,
 				7DA9081124BB7B5600FA5F72 /* Pink@2x.png in Resources */,
 				7DA9080024BB7B5600FA5F72 /* Dark Red-DARK@3x.png in Resources */,
 				7DA907FB24BB7B5600FA5F72 /* Pink@3x.png in Resources */,
 				7DA907FC24BB7B5600FA5F72 /* Cyan@2x.png in Resources */,
 				7DA9080624BB7B5600FA5F72 /* Pink-DARK@3x.png in Resources */,
 				7DA9081024BB7B5600FA5F72 /* Purple@3x.png in Resources */,
+				7DC7EAAE25A2B83300A98E73 /* Currencies.txt in Resources */,
 				7DA9080A24BB7B5600FA5F72 /* Green-DARK@2x.png in Resources */,
 				7DA9080524BB7B5600FA5F72 /* Red@2x.png in Resources */,
 				7DA907F724BB7B5600FA5F72 /* Dark Pink-DARK@2x.png in Resources */,
@@ -928,6 +963,7 @@
 				7D5C3F5C25939ADF00872A64 /* StringInput.swift in Sources */,
 				7D5C3F5D25939ADF00872A64 /* StringSub1.swift in Sources */,
 				7D5C2406254AE28C005A53C7 /* ColoredSwitch.swift in Sources */,
+				7DC7EA9725A2897A00A98E73 /* FinishPageList.swift in Sources */,
 				7D5C3F6425939ADF00872A64 /* MatrixSelection.swift in Sources */,
 				16CA266F20F881AB005CF903 /* ListCell.swift in Sources */,
 				169A23E72100A0FD007DA34F /* Notifications.swift in Sources */,

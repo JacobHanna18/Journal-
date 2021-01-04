@@ -10,7 +10,10 @@ import SwiftUI
 
 class FinishVC: UIViewController, Presenting, ObservableObject, UIDocumentPickerDelegate{
     
-    @Published var done : [[Bool]] = [[Bool]](repeating: [Bool](repeating: false, count: 7), count: 6)
+    @Published var selectedList : Int = Lists.selectedIndex
+    @Published var labels : [String] = Lists.value.map({ (l) -> String in
+        return l.name
+    })
     
     var calender = Calender(month: Date().month, year: Date().year)
     
@@ -21,24 +24,34 @@ class FinishVC: UIViewController, Presenting, ObservableObject, UIDocumentPicker
     
     func reload() {
         update()
-        content.rootView.doneImage = Lists.selectedList.doneImageName
-        content.rootView.undoneImage = Lists.selectedList.undoneImageName
-        content.rootView.color = Color(Lists.selectedList.listColor)
+        calenderHosting.rootView.doneImage = Lists.selectedList.doneImageName
+        calenderHosting.rootView.undoneImage = Lists.selectedList.undoneImageName
+        calenderHosting.rootView.color = Color(Lists.selectedList.listColor)
+        
+        calenderHosting.rootView.selectedIndex = Lists.selectedIndex
+        
+        selectedList = Lists.selectedIndex
+        labels = Lists.value.map({ (l) -> String in
+            return l.name
+        })
     }
     
     func update(){
-        self.navigationController?.view.tintColor = Lists.selectedList.listColor
-        self.navigationItem.title = Lists.selectedList.name
+        self.view.tintColor = Lists.selectedList.listColor
         self.tabBarController?.tabBar.items?[1].selectedImage = UIImage(systemName: Lists.TabBarSelectedImageName)?.withRenderingMode(.alwaysTemplate)
         self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: Lists.TabBarImageName)?.withRenderingMode(.alwaysTemplate)
         
     }
     static var main : FinishVC!
 
-    @IBOutlet weak var calenderView: UIView!
-    var content : UIHostingController<FinishCalenderView>!
-    
     var calenderV : FinishCalenderView!
+    @IBOutlet weak var calenderView: UIView!
+    var calenderHosting : UIHostingController<FinishCalenderView>!
+    
+    var titleV : FinishPageList!
+    @IBOutlet weak var titleView: UIView!
+    var titleHosting : UIHostingController<FinishPageList>!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,23 +63,43 @@ class FinishVC: UIViewController, Presenting, ObservableObject, UIDocumentPicker
             self.tapMonth()
         })
         
+        titleV = FinishPageList(vc: self,selectionChanged: { (i) in
+            Lists.selectedIndex = i
+            self.reload()
+        })
+        
+        
         update()
         setContent()
     }
     
     func setContent(){
-        content = UIHostingController(rootView: calenderV)
+        calenderHosting = UIHostingController(rootView: calenderV)
         
-        content.view.backgroundColor = UIColor.clear
-        addChild(content)
-        content.view.frame = calenderView.frame
-        calenderView.addSubview(content.view)
-        content.didMove(toParent: self)
-        content.view.translatesAutoresizingMaskIntoConstraints = false
-        content.view.topAnchor.constraint(equalTo: calenderView.topAnchor).isActive = true
-        content.view.bottomAnchor.constraint(equalTo: calenderView.bottomAnchor).isActive = true
-        content.view.leftAnchor.constraint(equalTo: calenderView.leftAnchor).isActive = true
-        content.view.rightAnchor.constraint(equalTo: calenderView.rightAnchor).isActive = true
+        calenderHosting.view.backgroundColor = UIColor.clear
+        addChild(calenderHosting)
+        calenderHosting.view.frame = calenderView.frame
+        calenderView.addSubview(calenderHosting.view)
+        calenderHosting.didMove(toParent: self)
+        calenderHosting.view.translatesAutoresizingMaskIntoConstraints = false
+        calenderHosting.view.topAnchor.constraint(equalTo: calenderView.topAnchor).isActive = true
+        calenderHosting.view.bottomAnchor.constraint(equalTo: calenderView.bottomAnchor).isActive = true
+        calenderHosting.view.leftAnchor.constraint(equalTo: calenderView.leftAnchor).isActive = true
+        calenderHosting.view.rightAnchor.constraint(equalTo: calenderView.rightAnchor).isActive = true
+        
+        
+        titleHosting = UIHostingController(rootView: titleV)
+        
+        titleHosting.view.backgroundColor = UIColor.clear
+        addChild(titleHosting)
+        titleHosting.view.frame = titleView.frame
+        titleView.addSubview(titleHosting.view)
+        titleHosting.didMove(toParent: self)
+        titleHosting.view.translatesAutoresizingMaskIntoConstraints = false
+        titleHosting.view.topAnchor.constraint(equalTo: titleView.topAnchor).isActive = true
+        titleHosting.view.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        titleHosting.view.leftAnchor.constraint(equalTo: titleView.leftAnchor).isActive = true
+        titleHosting.view.rightAnchor.constraint(equalTo: titleView.rightAnchor).isActive = true
     }
     
     @IBAction func selectMenu(_ sender: Any) {
@@ -83,6 +116,11 @@ class FinishVC: UIViewController, Presenting, ObservableObject, UIDocumentPicker
             return yearC
         })
         
+        let today = FormCell(type: .StringTitle(), title: "Today", tap:  {
+            self.calender.set(month: Day().m, year: Day().y)
+            FormVC.top?.dismiss(animated: true, completion: nil)
+        })
+        
         let datePicker = FormCell(type: .DateInput(showTime: false, showDate: true), title: "Select Date") { (inp) in
             if let d = inp as? Date{
                 self.calender.set(month: d.month, year: d.year)
@@ -92,7 +130,7 @@ class FinishVC: UIViewController, Presenting, ObservableObject, UIDocumentPicker
         }
 
         
-        self.showForm {FormProperties(title: "\(Calender.months[self.calender.month - 1]) \(self.calender.year)", cells: [monthCell,yearCell, datePicker], button: .none)}
+        self.showForm {FormProperties(title: "\(Calender.months[self.calender.month - 1]) \(self.calender.year)", cells: [monthCell,yearCell, datePicker, today], button: .none)}
 
     }
     
